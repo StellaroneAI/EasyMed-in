@@ -274,6 +274,88 @@ export const translations = {
     welcomeBack: "वापस स्वागत है",
     healthCompanion: "आपका स्वास्थ्य साथी यहाँ है",
 
+        // === Extra keys used by PatientDashboard (Hindi) ===
+    healthcareCompanion: "आपका स्वास्थ्य साथी",
+    patientPortal: "रोगी पोर्टल",
+    menu: "मेन्यू",
+    patientDefaultName: "रोगी उपयोगकर्ता",
+    logout: "लॉगआउट",
+
+    // Sidebar / navigation labels
+    dashboard: "डैशबोर्ड",
+    vitalSigns: "जीवन संकेत",
+    healthAnalytics: "स्वास्थ्य विश्लेषण",
+    bookConsultation: "कंसल्टेशन बुक करें",
+    healthRecordsMenu: "स्वास्थ्य रिकॉर्ड्स",
+    videoCall: "वीडियो कॉल",
+
+    // Mobile bottom nav short labels
+    home: "होम",
+    vitalsShort: "वाइटल",
+    aiShort: "AI",
+    medsShort: "दवाएँ",
+    recordsShort: "रिकॉर्ड्स",
+
+    // Header + status text
+    healthPriority: "आपका स्वास्थ्य हमेशा हमारी प्राथमिकता है।",
+    systemOnline: "सिस्टम ऑनलाइन",
+    healthcareReady: "स्वास्थ्य सेवाएँ तैयार हैं",
+
+    // Overview stats cards
+    upcomingAppointments: "आगामी अपॉइंटमेंट्स",
+    next: "अगला",
+    allUpdated: "सब अपडेटेड",
+    availableSchemes: "उपलब्ध योजनाएँ",
+    readyToApply: "आवेदन करने के लिए तैयार",
+
+    // Quick actions + recent activity
+    quickActions: "त्वरित क्रियाएँ",
+    bloodTestResults: "ब्लड टेस्ट परिणाम अपडेट किए गए",
+    allParametersNormal: "सभी पैरामीटर सामान्य • 2 दिन पहले",
+    appointmentScheduled: "डॉ. राजेश कुमार के साथ अपॉइंटमेंट शेड्यूल की गई",
+    videoConsultSummary: "वीडियो कंसल्टेशन • 3 दिन पहले",
+
+    // Government schemes section
+    governmentSchemes: "सरकारी स्वास्थ्य योजनाएँ जिनके लिए आप पात्र हो सकते हैं",
+    eligibility: "पात्रता",
+    coverage: "कवरेज",
+
+    // Video consultation page
+    videoConsultation: "वीडियो कंसल्टेशन",
+    connectWithDoctors: "स्वास्थ्य विशेषज्ञों से जुड़ें",
+    videoConsultBlurb:
+      "डॉक्टरों के साथ सहज वीडियो कंसल्टेशन का अनुभव करें, भाषा सहायता और सांस्कृतिक संदर्भ के लिए आशा कार्यकर्ता समर्थन के साथ।",
+    joinScheduledCall: "शेड्यूल्ड कॉल जॉइन करें",
+    nextDoctorSlot: "डॉ. राजेश कुमार • 10:00 AM",
+    scheduleNewCall: "नई कॉल शेड्यूल करें",
+    bookAvailableDoctors: "उपलब्ध डॉक्टरों के साथ बुक करें",
+    languagesCount: "12 भाषाएँ",
+    multilingualSupport: "बहुभाषी समर्थन",
+    ashaSupport: "आशा समर्थन",
+    localWorkerAssist: "स्थानीय स्वास्थ्य कार्यकर्ता सहायता",
+    anyDevice: "कोई भी डिवाइस",
+    deviceSupport: "फोन, टैबलेट, कंप्यूटर",
+    videoConsultHowItWorks: "वीडियो कंसल्टेशन कैसे काम करता है",
+    schedule: "शेड्यूल",
+    scheduleDesc: "पसंदीदा डॉक्टर के साथ अपॉइंटमेंट बुक करें",
+    prepare: "तैयारी",
+    prepareDesc: "कॉल लिंक और निर्देश प्राप्त करें",
+    connect: "कनेक्ट",
+    connectDesc: "निर्धारित समय पर वीडियो कॉल में शामिल हों",
+    followUp: "फॉलो-अप",
+    followUpDesc: "प्रिस्क्रिप्शन और आगे के कदम प्राप्त करें",
+
+    // Health records page
+    uploadDocument: "दस्तावेज़ अपलोड करें",
+    byDoctor: "द्वारा",
+    findings: "फाइंडिंग्स",
+    prescription: "प्रिस्क्रिप्शन",
+    download: "डाउनलोड",
+
+    // Nav collapse tooltips
+    collapseNavigation: "नेविगेशन संकुचित करें",
+    expandNavigation: "नेविगेशन विस्तृत करें",
+
     // Sidebar (Patient Dashboard)
     sidebarDashboard: "डैशबोर्ड",
     sidebarVitals: "जीवन संकेत",
