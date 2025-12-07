@@ -58,27 +58,20 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToLogin }) => {
               {/* Language Selector */}
               <div className="relative">
                 <select
-                  value={currentLanguage}
-                  onChange={(e) => {
-                    setLanguage(e.target.value);
-                  }}
-                  className="appearance-none bg-white/80 backdrop-blur-sm border border-blue-200 rounded-lg px-4 py-2 pr-10 text-sm font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer shadow-sm"
-                >
-                  <option value="english">🌐 English</option>
-                  <option value="hindi">🇮🇳 हिंदी</option>
-                  <option value="tamil">🇮🇳 தமிழ்</option>
-                  <option value="telugu">🇮🇳 తెలుగు</option>
-                  <option value="bengali">🇮🇳 বাংলা</option>
-                  <option value="marathi">🇮🇳 मराठी</option>
-                  {/*
-                   * Use lowercase language codes for the option values.  The
-                   * translation system keys are defined in lowercase (e.g.,
-                   * "kannada"), so using a different casing here will
-                   * prevent the selected language from matching the
-                   * translations and will cause a fallback to English.
-                   */
-                  <option value="kannada">🇮🇳 ಕನ್ನಡ</option>
-                </select>
+  value={currentLanguage}
+  onChange={(e) => {
+    setLanguage(e.target.value as any);
+  }}
+  className="appearance-none bg-white/80 backdrop-blur-sm border border-blue-200 rounded-lg px-4 py-2 pr-10 text-sm font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer shadow-sm"
+>
+  <option value="english">🌐 English</option>
+  <option value="hindi">🇮🇳 हिंदी</option>
+  <option value="tamil">🇮🇳 தமிழ்</option>
+  <option value="telugu">🇮🇳 తెలుగు</option>
+  <option value="bengali">🇮🇳 বাংলা</option>
+  <option value="marathi">🇮🇳 मराठी</option>
+  <option value="kannada">🇮🇳 ಕನ್ನಡ</option>
+</select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
                   <svg
                     className="w-4 h-4 text-blue-500"
