@@ -6,6 +6,16 @@ export const translations = {
     welcomeBack: "Welcome back",
     healthCompanion: "Your health companion is here",
 
+    // Sidebar (Patient Dashboard)
+    sidebarDashboard: "Dashboard",
+    sidebarVitals: "Vital Signs",
+    sidebarAISymptom: "AI Symptom Checker",
+    sidebarHealthAnalytics: "Health Analytics",
+    sidebarMedications: "Medications",
+    sidebarBookConsultation: "Book Consultation",
+    sidebarHealthRecords: "Health Records",
+    sidebarVideoCall: "Video Call",
+
     // Health Status Cards
     heartRate: "Heart Rate",
     bloodPressure: "Blood Pressure",
@@ -150,6 +160,16 @@ export const translations = {
     // Header & Navigation
     welcomeBack: "वापस स्वागत है",
     healthCompanion: "आपका स्वास्थ्य साथी यहाँ है",
+
+    // Sidebar (Patient Dashboard)
+    sidebarDashboard: "डैशबोर्ड",
+    sidebarVitals: "जीवन संकेत",
+    sidebarAISymptom: "AI लक्षण जाँचकर्ता",
+    sidebarHealthAnalytics: "स्वास्थ्य विश्लेषण",
+    sidebarMedications: "दवाइयाँ",
+    sidebarBookConsultation: "कंसल्टेशन बुक करें",
+    sidebarHealthRecords: "स्वास्थ्य रिकॉर्ड्स",
+    sidebarVideoCall: "वीडियो कॉल",
 
     // Health Status Cards
     heartRate: "हृदय गति",
@@ -296,6 +316,16 @@ export const translations = {
     welcomeBack: "மீண்டும் வருக",
     healthCompanion: "உங்கள் உடல்நல துணை இங்கே உள்ளது",
 
+    // Sidebar (Patient Dashboard)
+    sidebarDashboard: "டாஷ்போர்டு",
+    sidebarVitals: "உடல் முக்கிய அறிகுறிகள்",
+    sidebarAISymptom: "AI அறிகுறி சரிபார்ப்பாளர்",
+    sidebarHealthAnalytics: "உடல்நலம் பகுப்பாய்வு",
+    sidebarMedications: "மருந்துகள்",
+    sidebarBookConsultation: "ஆலோசனை முன்பதிவு செய்யுங்கள்",
+    sidebarHealthRecords: "உடல்நல பதிவுகள்",
+    sidebarVideoCall: "வீடியோ அழைப்பு",
+
     // Health Status Cards
     heartRate: "இதய துடிப்பு",
     bloodPressure: "இரத்த அழுத்தம்",
@@ -439,6 +469,16 @@ export const translations = {
     // Header & Navigation
     welcomeBack: "తిరిగి స్వాగతం",
     healthCompanion: "మీ ఆరోగ్య సహాయకుడు ఇక్కడ ఉన్నారు",
+
+    // Sidebar (Patient Dashboard)
+    sidebarDashboard: "డ్యాష్‌బోర్డ్",
+    sidebarVitals: "విటల్ సైన్స్",
+    sidebarAISymptom: "AI లక్షణ తనిఖీదారు",
+    sidebarHealthAnalytics: "ఆరోగ్య విశ్లేషణ",
+    sidebarMedications: "మందులు",
+    sidebarBookConsultation: "కన్సల్టేషన్ బుక్ చేయండి",
+    sidebarHealthRecords: "ఆరోగ్య రికార్డులు",
+    sidebarVideoCall: "వీడియో కాల్",
 
     // Health Status Cards
     heartRate: "హృదయ స్పందన",
@@ -584,6 +624,16 @@ export const translations = {
     welcomeBack: "ফিরে আসার জন্য স্বাগতম",
     healthCompanion: "আপনার স্বাস্থ্য সহায়ক এখানে আছেন",
 
+    // Sidebar (Patient Dashboard)
+    sidebarDashboard: "ড্যাশবোর্ড",
+    sidebarVitals: "ভিটাল সাইনস",
+    sidebarAISymptom: "AI লক্ষণ পরীক্ষক",
+    sidebarHealthAnalytics: "স্বাস্থ্য বিশ্লেষণ",
+    sidebarMedications: "ওষুধ",
+    sidebarBookConsultation: "কনসালটেশন বুক করুন",
+    sidebarHealthRecords: "স্বাস্থ্য রেকর্ড",
+    sidebarVideoCall: "ভিডিও কল",
+
     // Health Status Cards
     heartRate: "হৃদস্পন্দন",
     bloodPressure: "রক্তচাপ",
@@ -727,6 +777,16 @@ export const translations = {
     // Header & Navigation
     welcomeBack: "परत स्वागत आहे",
     healthCompanion: "तुमचा आरोग्य सहाय्यक येथे आहे",
+
+    // Sidebar (Patient Dashboard)
+    sidebarDashboard: "डॅशबोर्ड",
+    sidebarVitals: "व्हिटल साइन",
+    sidebarAISymptom: "AI लक्षण तपासकर्ता",
+    sidebarHealthAnalytics: "आरोग्य विश्लेषण",
+    sidebarMedications: "औषधे",
+    sidebarBookConsultation: "कन्सल्टेशन बुक करा",
+    sidebarHealthRecords: "आरोग्य रेकॉर्ड्स",
+    sidebarVideoCall: "व्हिडिओ कॉल",
 
     // Health Status Cards
     heartRate: "हृदयाची धडधड",
@@ -872,6 +932,16 @@ export const translations = {
     welcomeBack: "തിരികെ സ്വാഗതം",
     healthCompanion: "നിങ്ങളുടെ ആരോഗ്യ പങ്കാളി ഇവിടെ",
 
+    // Sidebar (Patient Dashboard)
+    sidebarDashboard: "ഡാഷ്ബോർഡ്",
+    sidebarVitals: "വൈറ്റൽ സൈൻസ്",
+    sidebarAISymptom: "AI ലക്ഷണം പരിശോധകൻ",
+    sidebarHealthAnalytics: "ആരോഗ്യ വിശകലനം",
+    sidebarMedications: "മരുന്നുകള്‍",
+    sidebarBookConsultation: "കൺസൾട്ടേഷൻ ബുക്ക് ചെയ്യുക",
+    sidebarHealthRecords: "ആരോഗ്യ രേഖകൾ",
+    sidebarVideoCall: "വീഡിയോ കോൾ",
+
     // Health Status Cards
     heartRate: "ഹൃദയമിടിപ്പ്",
     bloodPressure: "രക്ത സമ്മര്‍ദ്ദം",
@@ -1015,6 +1085,16 @@ export const translations = {
     // Header & Navigation
     welcomeBack: "ಹಿಂತಿರುಗಿ ಸ್ವಾಗತ",
     healthCompanion: "ನಿಮ್ಮ ಆರೋಗ್ಯ ಸಹಾಯಕರಿದ್ದಾರೆ",
+
+    // Sidebar (Patient Dashboard)
+    sidebarDashboard: "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    sidebarVitals: "ವೈಟಲ್ ಸೈನ್ಸ್",
+    sidebarAISymptom: "AI ಲಕ್ಷಣ ಪರಿಶೀಲಕ",
+    sidebarHealthAnalytics: "ಆರೋಗ್ಯ ವಿಶ್ಲೇಷಣೆ",
+    sidebarMedications: "ಔಷಧಿಗಳು",
+    sidebarBookConsultation: "ಕನ್ಸಲ್ಟೇಶನ್ ಬುಕ್ ಮಾಡಿ",
+    sidebarHealthRecords: "ಆರೋಗ್ಯ ದಾಖಲೆಗಳು",
+    sidebarVideoCall: "ವೀಡಿಯೊ ಕಾಲ್",
 
     // Health Status Cards
     heartRate: "ಹೃದಯದ ಬಡಿತ",
