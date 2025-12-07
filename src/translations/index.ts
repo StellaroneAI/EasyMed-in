@@ -94,6 +94,32 @@ export const translations = {
     invalidOtp: "Invalid OTP. Please try again.",
     loginSuccess: "Login Successful!",
 
+        // --- Patient dashboard (new UI) ---
+    patientPortal: "Patient Portal",
+    healthPriority: "Your health is always our priority.",
+    systemOnline: "System online",
+    healthcareReady: "Healthcare support is ready",
+
+    upcomingAppointments: "Upcoming appointments",
+    healthRecords: "Health records",
+    availableSchemes: "Available schemes",
+    next: "next:",
+    allUpdated: "All updated",
+    readyToApply: "Ready to apply",
+
+    quickActions: "Quick actions",
+    recentActivity: "Recent activity",
+    bloodTestResults: "Blood test results: all parameters normal",
+
+    videoCall: "Video Call",
+    startConsultation: "Start a video consultation with a doctor",
+    bookAppointment: "Book appointment",
+    bookConsultation: "Book consultation",
+    prescriptions: "Prescriptions",
+    viewMedicines: "View medicines",
+
+    healthRecordsMenu: "Health records",
+
     // Home Page Content
     homepage: {
       getStarted: "Get Started",
@@ -238,6 +264,32 @@ export const translations = {
     terms: "जारी रखने से, आप हमारी सेवा की शर्तों और गोपनीयता नीति से सहमत हैं",
     invalidOtp: "अमान्य OTP. कृपया पुनः प्रयास करें।",
     loginSuccess: "लॉगिन सफल!",
+
+        // --- Patient dashboard (new UI) ---
+    patientPortal: "रोगी पोर्टल",
+    healthPriority: "आपका स्वास्थ्य हमेशा हमारी प्राथमिकता है।",
+    systemOnline: "सिस्टम ऑनलाइन",
+    healthcareReady: "स्वास्थ्य सहायता तैयार है",
+
+    upcomingAppointments: "आगामी अपॉइंटमेंट्स",
+    healthRecords: "हेल्थ रिकॉर्ड्स",
+    availableSchemes: "उपलब्ध योजनाएँ",
+    next: "अगला:",
+    allUpdated: "सब अपडेटेड",
+    readyToApply: "आवेदन के लिए तैयार",
+
+    quickActions: "त्वरित क्रियाएँ",
+    recentActivity: "हाल की गतिविधि",
+    bloodTestResults: "रक्त जाँच के परिणाम: सभी पैरामीटर सामान्य हैं",
+
+    videoCall: "वीडियो कॉल",
+    startConsultation: "डॉक्टर के साथ वीडियो परामर्श शुरू करें",
+    bookAppointment: "अपॉइंटमेंट बुक करें",
+    bookConsultation: "कंसल्टेशन बुक करें",
+    prescriptions: "प्रिस्क्रिप्शन",
+    viewMedicines: "दवाइयाँ देखें",
+
+    healthRecordsMenu: "हेल्थ रिकॉर्ड्स",
 
     // Home Page Content
     homepage: {
