@@ -1,11 +1,46 @@
-import { useState } from "react";
+// src/components/LoginPage.tsx (or ModernLoginPage.tsx)
+
+import { useState, type FormEvent } from "react";
 import LanguageSelector from "./LanguageSelector";
 import { useLanguage } from "../contexts/LanguageContext";
 
 type LoginMode = "phone" | "email";
+type UserRole = "patient" | "doctor" | "admin";
 
-export default function ModernLoginPage() {
-  const { t } = useLanguage();
+interface ModernLoginPageProps {
+  onLogin: (userType: UserRole, userInfo: any) => void;
+}
+
+// Simple demo credentials – adjust as you like
+const demoCredentials: Record<
+  UserRole,
+  { email: string; password: string; name: string }[]
+> = {
+  patient: [
+    {
+      email: "patient@easymed.ai",
+      password: "patient123",
+      name: "Patient User",
+    },
+  ],
+  doctor: [
+    {
+      email: "doctor@easymed.ai",
+      password: "doctor123",
+      name: "Dr. Meera",
+    },
+  ],
+  admin: [
+    {
+      email: "admin@easymed.ai",
+      password: "admin123",
+      name: "Admin User",
+    },
+  ],
+};
+
+export default function ModernLoginPage({ onLogin }: ModernLoginPageProps) {
+  const { t, language } = useLanguage();
 
   const getText = (key: string): string => t(key);
 
@@ -16,39 +51,97 @@ export default function ModernLoginPage() {
   const [otp, setOtp] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
 
-  const handleSendOtp = (e: React.FormEvent) => {
+  // ---- PHONE + OTP FLOW ----
+
+  const handleSendOtp = (e: FormEvent) => {
     e.preventDefault();
     if (!phone) return;
+
     setIsLoading(true);
+    setMessage(null);
+
+    // Simulate sending OTP
     setTimeout(() => {
       setIsLoading(false);
       setOtpSent(true);
-      // TODO: hook your OTP API here
+      // You can show a static "OTP sent" text here if you add a key in translations
+      // setMessage(getText("otpSent"));
     }, 700);
   };
 
-  const handleVerifyOtp = (e: React.FormEvent) => {
+  const handleVerifyOtp = (e: FormEvent) => {
     e.preventDefault();
     if (!otp) return;
+
     setIsLoading(true);
+    setMessage(null);
+
     setTimeout(() => {
       setIsLoading(false);
-      alert(getText("loginSuccess"));
-      // TODO: replace with real navigation
+
+      // Demo: accept OTP 123456
+      if (otp === "123456") {
+        setMessage(getText("loginSuccess"));
+
+        const userInfo = {
+          name: "EasyMed User",
+          phone,
+          language,
+          loginMethod: "phone",
+        };
+
+        // Navigate to patient dashboard
+        onLogin("patient", userInfo);
+      } else {
+        setMessage(getText("invalidOtp"));
+      }
     }, 700);
   };
 
-  const handleEmailLogin = (e: React.FormEvent) => {
+  // ---- EMAIL + PASSWORD FLOW ----
+
+  const handleEmailLogin = (e: FormEvent) => {
     e.preventDefault();
     if (!email || !password) return;
+
     setIsLoading(true);
+    setMessage(null);
+
     setTimeout(() => {
       setIsLoading(false);
-      alert(getText("loginSuccess"));
-      // TODO: replace with real navigation
+
+      const roles: UserRole[] = ["admin", "doctor", "patient"];
+
+      for (const role of roles) {
+        const match = demoCredentials[role].find(
+          (cred) => cred.email === email && cred.password === password,
+        );
+
+        if (match) {
+          setMessage(getText("loginSuccess"));
+
+          const userInfo = {
+            name: match.name,
+            email,
+            role,
+            language,
+            loginMethod: "email",
+          };
+
+          onLogin(role, userInfo);
+          return;
+        }
+      }
+
+      // If you don’t have "invalidCredentials" in translations yet
+      // it will show as [invalidCredentials] until we add it.
+      setMessage(getText("invalidCredentials"));
     }, 700);
   };
+
+  // ---- RENDER FORMS ----
 
   const renderPhoneForm = () => (
     <form
@@ -86,6 +179,9 @@ export default function ModernLoginPage() {
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
           />
+          <p className="text-[11px] text-gray-400">
+            Demo: use <span className="font-mono">123456</span> as OTP.
+          </p>
         </div>
       )}
 
@@ -111,7 +207,7 @@ export default function ModernLoginPage() {
         <input
           type="email"
           className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 text-sm"
-          placeholder="you@example.com"
+          placeholder="patient@easymed.ai"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -128,6 +224,12 @@ export default function ModernLoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <p className="text-[11px] text-gray-400">
+          Demo logins: <br />
+          patient@easymed.ai / patient123 <br />
+          doctor@easymed.ai / doctor123 <br />
+          admin@easymed.ai / admin123
+        </p>
       </div>
 
       <button
@@ -163,7 +265,6 @@ export default function ModernLoginPage() {
               </div>
             </div>
             <div className="shrink-0">
-              {/* Language dropdown clearly visible on card */}
               <LanguageSelector />
             </div>
           </div>
@@ -185,6 +286,7 @@ export default function ModernLoginPage() {
               onClick={() => {
                 setMode("phone");
                 setOtpSent(false);
+                setMessage(null);
               }}
               className={`flex-1 py-2 rounded-lg font-medium transition-all ${
                 mode === "phone"
@@ -199,6 +301,7 @@ export default function ModernLoginPage() {
               onClick={() => {
                 setMode("email");
                 setOtpSent(false);
+                setMessage(null);
               }}
               className={`flex-1 py-2 rounded-lg font-medium transition-all ${
                 mode === "email"
@@ -213,6 +316,11 @@ export default function ModernLoginPage() {
           {/* Form */}
           <div>{mode === "phone" ? renderPhoneForm() : renderEmailForm()}</div>
 
+          {/* Status message */}
+          {message && (
+            <p className="text-[11px] text-center text-gray-600">{message}</p>
+          )}
+
           {/* Divider */}
           <div className="flex items-center">
             <div className="flex-1 h-px bg-gray-200" />
@@ -222,7 +330,7 @@ export default function ModernLoginPage() {
             <div className="flex-1 h-px bg-gray-200" />
           </div>
 
-          {/* Social buttons – more “real” */}
+          {/* Social buttons */}
           <div className="grid grid-cols-3 gap-3 text-xs sm:text-sm">
             {/* Google */}
             <button className="flex items-center justify-center space-x-1.5 rounded-xl border border-gray-200 bg-white py-2 shadow-sm hover:bg-gray-50 transition-all">
