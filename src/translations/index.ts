@@ -6,6 +6,11 @@ export const translations = {
     welcomeBack: "Welcome back",
     healthCompanion: "Your health companion is here",
 
+        // Sidebar / navigation
+    dashboard: "Dashboard",
+    vitalSigns: "Vital signs",
+    healthAnalytics: "Health analytics",
+
     // Health Status Cards
     heartRate: "Heart Rate",
     bloodPressure: "Blood Pressure",
@@ -176,6 +181,11 @@ export const translations = {
     // Header & Navigation
     welcomeBack: "वापस स्वागत है",
     healthCompanion: "आपका स्वास्थ्य साथी यहाँ है",
+
+        // Sidebar / navigation
+    dashboard: "डैशबोर्ड",
+    vitalSigns: "वाइटल साइन",
+    healthAnalytics: "हेल्थ एनालिटिक्स",
 
     // Health Status Cards
     heartRate: "हृदय गति",
