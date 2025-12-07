@@ -511,6 +511,81 @@ export const translations = {
     welcomeBack: "மீண்டும் வருக",
     healthCompanion: "உங்கள் உடல்நல துணை இங்கே உள்ளது",
 
+        // === Extra keys used by PatientDashboard (Tamil) ===
+    healthcareCompanion: "உங்கள் சுகாதார துணை",
+    patientPortal: "நோயாளர் போர்டல்",
+    menu: "மெனு",
+    patientDefaultName: "நோயாளர் பயனர்",
+    logout: "லாக்அவுட்",
+
+    dashboard: "டாஷ்போர்டு",
+    vitalSigns: "உடல் முக்கிய அறிகுறிகள்",
+    healthAnalytics: "உடல்நலம் பகுப்பாய்வு",
+    bookConsultation: "ஆலோசனை முன்பதிவு செய்யுங்கள்",
+    healthRecordsMenu: "உடல்நல பதிவுகள்",
+    videoCall: "வீடியோ அழைப்பு",
+
+    home: "முகப்பு",
+    vitalsShort: "விட்டல்ஸ்",
+    aiShort: "AI",
+    medsShort: "மருந்துகள்",
+    recordsShort: "பதிவுகள்",
+
+    healthPriority: "உங்கள் உடல்நலம் எப்போதும் எங்களின் முன்னுரிமை.",
+    systemOnline: "சிஸ்டம் ஆன்லைனில் உள்ளது",
+    healthcareReady: "மருத்துவ உதவி தயாராக உள்ளது",
+
+    upcomingAppointments: "வரவிருக்கும் சந்திப்புகள்",
+    next: "அடுத்தது",
+    allUpdated: "அனைத்தும் புதுப்பிக்கப்பட்டது",
+    availableSchemes: "கிடைக்கக்கூடிய திட்டங்கள்",
+    readyToApply: "விண்ணப்பிக்கத் தயாராக உள்ளது",
+
+    quickActions: "விரைவு செயல்கள்",
+    bloodTestResults: "இரத்த பரிசோதனை முடிவுகள் புதுப்பிக்கப்பட்டது",
+    allParametersNormal: "அனைத்து அளவுகோள்களும் சாதாரணம் • 2 நாட்களுக்கு முன்",
+    appointmentScheduled: "டாக்டர் ராஜேஷ் குமார் உடன் சந்திப்பு திட்டமிடப்பட்டது",
+    videoConsultSummary: "வீடியோ ஆலோசனை • 3 நாட்களுக்கு முன்",
+
+    governmentSchemes: "நீங்கள் தகுதி பெறக்கூடிய அரசின் சுகாதார திட்டங்கள்",
+    eligibility: "தகுதி",
+    coverage: "கவரேஜ்",
+
+    videoConsultation: "வீடியோ ஆலோசனை",
+    connectWithDoctors: "மருத்துவ நிபுணர்களுடன் இணையுங்கள்",
+    videoConsultBlurb:
+      "மருத்துவர்களுடன் தடையற்ற வீடியோ ஆலோசனையை அனுபவிக்கவும்; மொழி உதவி மற்றும் கலாச்சார புரிதலுக்கு ஆஷா பணியாளர் ஆதரவு உள்ளது.",
+    joinScheduledCall: "திட்டமிடப்பட்ட கால்-இல் சேரவும்",
+    nextDoctorSlot: "டாக்டர் ராஜேஷ் குமார் • 10:00 AM",
+    scheduleNewCall: "புதிய கால் ஒன்றை திட்டமிடுங்கள்",
+    bookAvailableDoctors: "கிடைக்கும் மருத்துவர்களுடன் முன்பதிவு செய்யவும்",
+
+    languagesCount: "12 மொழிகள்",
+    multilingualSupport: "பலமொழி ஆதரவு",
+    ashaSupport: "ஆஷா ஆதரவு",
+    localWorkerAssist: "உள்ளூர் சுகாதார பணியாளர் உதவி",
+    anyDevice: "எந்த சாதனமும்",
+    deviceSupport: "போன், டேப்லெட், கணினி",
+
+    videoConsultHowItWorks: "வீடியோ ஆலோசனை எப்படி செயல்படுகிறது",
+    schedule: "அட்டவணை",
+    scheduleDesc: "விருப்பமான மருத்துவருடன் நேரத்தை முன்பதிவு செய்யுங்கள்",
+    prepare: "தயாராகுங்கள்",
+    prepareDesc: "கால் இணைப்பு மற்றும் வழிமுறைகளைப் பெறுங்கள்",
+    connect: "இணைக",
+    connectDesc: "குறிப்பிட்ட நேரத்தில் வீடியோ கால்-இல் இணைக",
+    followUp: "பின்தொடர்வு",
+    followUpDesc: "மருந்து பரிந்துரை மற்றும் அடுத்த படிகளைப் பெறுங்கள்",
+
+    uploadDocument: "ஆவணத்தை பதிவேற்றவும்",
+    byDoctor: "மருத்துவர்",
+    findings: "கண்டறிதல்கள்",
+    prescription: "மருந்து சீட்டு",
+    download: "பதிவிறக்குக",
+
+    collapseNavigation: "வழிசெலுத்தலை சுருக்கவும்",
+    expandNavigation: "வழிசெலுத்தலை விரிவாக்கவும்",
+
     // Sidebar (Patient Dashboard)
     sidebarDashboard: "டாஷ்போர்டு",
     sidebarVitals: "உடல் முக்கிய அறிகுறிகள்",
@@ -664,6 +739,81 @@ export const translations = {
     // Header & Navigation
     welcomeBack: "తిరిగి స్వాగతం",
     healthCompanion: "మీ ఆరోగ్య సహాయకుడు ఇక్కడ ఉన్నారు",
+
+        // === Extra keys used by PatientDashboard (Telugu) ===
+    healthcareCompanion: "మీ ఆరోగ్య సహాయకుడు",
+    patientPortal: "రోగి పోర్టల్",
+    menu: "మెనూ",
+    patientDefaultName: "రోగి వినియోగదారుడు",
+    logout: "లాగ్ అవుట్",
+
+    dashboard: "డ్యాష్‌బోర్డ్",
+    vitalSigns: "విటల్ సైన్స్",
+    healthAnalytics: "ఆరోగ్య విశ్లేషణ",
+    bookConsultation: "కన్సల్టేషన్ బుక్ చేయండి",
+    healthRecordsMenu: "ఆరోగ్య రికార్డులు",
+    videoCall: "వీడియో కాల్",
+
+    home: "హోమ్",
+    vitalsShort: "విటల్స్",
+    aiShort: "AI",
+    medsShort: "మందులు",
+    recordsShort: "రికార్డులు",
+
+    healthPriority: "మీ ఆరోగ్యం ఎల్లప్పుడూ మా ప్రాధాన్యం.",
+    systemOnline: "సిస్టమ్ ఆన్‌లైన్‌లో ఉంది",
+    healthcareReady: "ఆరోగ్య సహాయం సిద్ధంగా ఉంది",
+
+    upcomingAppointments: "రాబోయే అపాయింట్‌మెంట్‌లు",
+    next: "తదుపరి",
+    allUpdated: "అన్ని అప్డేట్ అయ్యాయి",
+    availableSchemes: "అందుబాటులో ఉన్న పథకాలు",
+    readyToApply: "అప్లై చేయడానికి సిద్ధంగా ఉంది",
+
+    quickActions: "త్వరిత చర్యలు",
+    bloodTestResults: "రక్త పరీక్ష ఫలితాలు నవీకరించబడ్డాయి",
+    allParametersNormal: "అన్ని పరామితులు సాధారణంగా ఉన్నాయి • 2 రోజుల క్రితం",
+    appointmentScheduled: "డాక్టర్ రాజేష్ కుమార్‌తో అపాయింట్‌మెంట్ షెడ్యూల్ చేయబడింది",
+    videoConsultSummary: "వీడియో కన్సల్టేషన్ • 3 రోజుల క్రితం",
+
+    governmentSchemes: "మీరు అర్హత పొందవచ్చు అనే ప్రభుత్వ ఆరోగ్య పథకాలు",
+    eligibility: "అర్హత",
+    coverage: "కవరేజ్",
+
+    videoConsultation: "వీడియో కన్సల్టేషన్",
+    connectWithDoctors: "ఆరోగ్య నిపుణులతో కనెక్ట్ అవ్వండి",
+    videoConsultBlurb:
+      "భాషా సహాయం మరియు సాంస్కృతిక అవగాహన కోసం ఆశా వర్కర్ మద్దతుతో, డాక్టర్లతో నిరంతర వీడియో కన్సల్టేషన్‌ను అనుభవించండి.",
+    joinScheduledCall: "షెడ్యూల్ చేసిన కాల్‌లో చేరండి",
+    nextDoctorSlot: "డా. రాజేష్ కుమార్ • 10:00 AM",
+    scheduleNewCall: "కొత్త కాల్ షెడ్యూల్ చేయండి",
+    bookAvailableDoctors: "అందుబాటులో ఉన్న డాక్టర్లతో బుక్ చేయండి",
+
+    languagesCount: "12 భాషలు",
+    multilingualSupport: "బహుభాషా మద్దతు",
+    ashaSupport: "ఆశా మద్దతు",
+    localWorkerAssist: "స్థానిక ఆరోగ్య కార్యకర్త సహాయం",
+    anyDevice: "ఏ డివైస్ అయినా",
+    deviceSupport: "ఫోన్, టాబ్లెట్, కంప్యూటర్",
+
+    videoConsultHowItWorks: "వీడియో కన్సల్టేషన్ ఎలా పని చేస్తుంది",
+    schedule: "షెడ్యూల్",
+    scheduleDesc: "ఇష్టమైన డాక్టర్‌తో అపాయింట్‌మెంట్ బుక్ చేయండి",
+    prepare: "సిద్ధం అవ్వండి",
+    prepareDesc: "కాల్ లింక్ మరియు సూచనలు పొందండి",
+    connect: "కనెక్ట్ అవ్వండి",
+    connectDesc: "షెడ్యూల్ చేసిన సమయానికి వీడియో కాల్‌లో చేరండి",
+    followUp: "ఫాలో-అప్",
+    followUpDesc: "ప్రిస్క్రిప్షన్ మరియు తదుపరి సూచనలు పొందండి",
+
+    uploadDocument: "డాక్యుమెంట్ అప్లోడ్ చేయండి",
+    byDoctor: "డాక్టర్",
+    findings: "ఫైండింగ్స్",
+    prescription: "ప్రిస్క్రిప్షన్",
+    download: "డౌన్‌లోడ్",
+
+    collapseNavigation: "నావిగేషన్‌ను చిన్నది చేయండి",
+    expandNavigation: "నావిగేషన్‌ను విస్తరించండి",
 
     // Sidebar (Patient Dashboard)
     sidebarDashboard: "డ్యాష్‌బోర్డ్",
@@ -819,6 +969,81 @@ export const translations = {
     welcomeBack: "ফিরে আসার জন্য স্বাগতম",
     healthCompanion: "আপনার স্বাস্থ্য সহায়ক এখানে আছেন",
 
+        // === Extra keys used by PatientDashboard (Bengali) ===
+    healthcareCompanion: "আপনার স্বাস্থ্য সঙ্গী",
+    patientPortal: "পেশেন্ট পোর্টাল",
+    menu: "মেনু",
+    patientDefaultName: "রোগী ইউজার",
+    logout: "লগআউট",
+
+    dashboard: "ড্যাশবোর্ড",
+    vitalSigns: "ভিটাল সাইনস",
+    healthAnalytics: "স্বাস্থ্য বিশ্লেষণ",
+    bookConsultation: "কনসালটেশন বুক করুন",
+    healthRecordsMenu: "স্বাস্থ্য রেকর্ড",
+    videoCall: "ভিডিও কল",
+
+    home: "হোম",
+    vitalsShort: "ভাইটাল",
+    aiShort: "AI",
+    medsShort: "ওষুধ",
+    recordsShort: "রেকর্ড",
+
+    healthPriority: "আপনার স্বাস্থ্য সবসময়ই আমাদের অগ্রাধিকার।",
+    systemOnline: "সিস্টেম অনলাইনে আছে",
+    healthcareReady: "স্বাস্থ্য সহায়তা প্রস্তুত",
+
+    upcomingAppointments: "আসন্ন অ্যাপয়েন্টমেন্ট",
+    next: "পরবর্তী",
+    allUpdated: "সব আপডেটেড",
+    availableSchemes: "উপলব্ধ স্কিম",
+    readyToApply: "আবেদন করার জন্য প্রস্তুত",
+
+    quickActions: "দ্রুত একশন",
+    bloodTestResults: "ব্লাড টেস্টের ফলাফল আপডেট হয়েছে",
+    allParametersNormal: "সব প্যারামিটার স্বাভাবিক • ২ দিন আগে",
+    appointmentScheduled: "ডাঃ রাজেশ কুমারের সাথে অ্যাপয়েন্টমেন্ট নির্ধারিত",
+    videoConsultSummary: "ভিডিও কনসালটেশন • ৩ দিন আগে",
+
+    governmentSchemes: "সরকারি স্বাস্থ্য স্কিম যেগুলোর জন্য আপনি যোগ্য হতে পারেন",
+    eligibility: "যোগ্যতা",
+    coverage: "কভারেজ",
+
+    videoConsultation: "ভিডিও কনসালটেশন",
+    connectWithDoctors: "স্বাস্থ্য বিশেষজ্ঞদের সাথে যুক্ত হোন",
+    videoConsultBlurb:
+      "ভাষা সহায়তা ও সাংস্কৃতিক প্রেক্ষাপটের জন্য আশাকর্মীর সমর্থনসহ, ডাক্তারদের সাথে নিরবচ্ছিন্ন ভিডিও কনসালটেশন উপভোগ করুন।",
+    joinScheduledCall: "নির্ধারিত কলে যোগ দিন",
+    nextDoctorSlot: "ডাঃ রাজেশ কুমার • সকাল ১০টা",
+    scheduleNewCall: "নতুন কল নির্ধারণ করুন",
+    bookAvailableDoctors: "উপলব্ধ ডাক্তারদের সঙ্গে বুক করুন",
+
+    languagesCount: "১২টি ভাষা",
+    multilingualSupport: "বহুভাষিক সহায়তা",
+    ashaSupport: "আশা সাপোর্ট",
+    localWorkerAssist: "স্থানীয় স্বাস্থ্যকর্মীর সহায়তা",
+    anyDevice: "যেকোনো ডিভাইস",
+    deviceSupport: "ফোন, ট্যাবলেট, কম্পিউটার",
+
+    videoConsultHowItWorks: "ভিডিও কনসালটেশন কীভাবে কাজ করে",
+    schedule: "সূচি",
+    scheduleDesc: "পছন্দের ডাক্তারের সাথে অ্যাপয়েন্টমেন্ট বুক করুন",
+    prepare: "প্রস্তুতি নিন",
+    prepareDesc: "কলের লিংক ও নির্দেশাবলী পান",
+    connect: "কনেক্ট করুন",
+    connectDesc: "নির্ধারিত সময়ে ভিডিও কলে যোগ দিন",
+    followUp: "ফলো-আপ",
+    followUpDesc: "প্রেসক্রিপশন ও পরবর্তী ধাপগুলো পান",
+
+    uploadDocument: "ডকুমেন্ট আপলোড করুন",
+    byDoctor: "ডাঃ",
+    findings: "ফাইন্ডিংস",
+    prescription: "প্রেসক্রিপশন",
+    download: "ডাউনলোড",
+
+    collapseNavigation: "নেভিগেশন ভাঁজ করুন",
+    expandNavigation: "নেভিগেশন প্রসারিত করুন",
+
     // Sidebar (Patient Dashboard)
     sidebarDashboard: "ড্যাশবোর্ড",
     sidebarVitals: "ভিটাল সাইনস",
@@ -972,6 +1197,81 @@ export const translations = {
     // Header & Navigation
     welcomeBack: "परत स्वागत आहे",
     healthCompanion: "तुमचा आरोग्य सहाय्यक येथे आहे",
+
+        // === Extra keys used by PatientDashboard (Marathi) ===
+    healthcareCompanion: "तुमचा आरोग्य साथी",
+    patientPortal: "पेशंट पोर्टल",
+    menu: "मेनू",
+    patientDefaultName: "रुग्ण वापरकर्ता",
+    logout: "लॉगआउट",
+
+    dashboard: "डॅशबोर्ड",
+    vitalSigns: "व्हिटल साइन",
+    healthAnalytics: "आरोग्य विश्लेषण",
+    bookConsultation: "कन्सल्टेशन बुक करा",
+    healthRecordsMenu: "आरोग्य रेकॉर्ड्स",
+    videoCall: "व्हिडिओ कॉल",
+
+    home: "होम",
+    vitalsShort: "व्हिटल्स",
+    aiShort: "AI",
+    medsShort: "औषधे",
+    recordsShort: "रेकॉर्ड्स",
+
+    healthPriority: "तुमचे आरोग्य आमची कायम प्राधान्य आहे.",
+    systemOnline: "सिस्टम ऑनलाईन आहे",
+    healthcareReady: "आरोग्य सहाय्य तयार आहे",
+
+    upcomingAppointments: "येणाऱ्या अपॉइंटमेंट्स",
+    next: "पुढील",
+    allUpdated: "सर्व अपडेट झाले",
+    availableSchemes: "उपलब्ध योजना",
+    readyToApply: "अर्ज करण्यास तयार",
+
+    quickActions: "त्वरित कृती",
+    bloodTestResults: "रक्त तपासणीचे निकाल अपडेट झाले",
+    allParametersNormal: "सर्व पॅरामीटर्स सामान्य • २ दिवसांपूर्वी",
+    appointmentScheduled: "डॉ. राजेश कुमार यांच्यासोबत अपॉइंटमेंट शेड्यूल झाली",
+    videoConsultSummary: "व्हिडिओ कन्सल्टेशन • ३ दिवसांपूर्वी",
+
+    governmentSchemes: "सरकारी आरोग्य योजना ज्या साठी तुम्ही पात्र असू शकता",
+    eligibility: "पात्रता",
+    coverage: "कव्हरेज",
+
+    videoConsultation: "व्हिडिओ कन्सल्टेशन",
+    connectWithDoctors: "आरोग्य तज्ञांशी संपर्क साधा",
+    videoConsultBlurb:
+      "डॉक्टरांसोबत अखंड व्हिडिओ कन्सल्टेशनचा अनुभव घ्या, भाषेच्या मदतीसाठी आणि सांस्कृतिक संदर्भासाठी आशा वर्करचा आधार उपलब्ध आहे.",
+    joinScheduledCall: "शेड्यूल केलेल्या कॉलमध्ये सामील व्हा",
+    nextDoctorSlot: "डॉ. राजेश कुमार • सकाळी १०",
+    scheduleNewCall: "नवीन कॉल शेड्यूल करा",
+    bookAvailableDoctors: "उपलब्ध डॉक्टरांसोबत बुक करा",
+
+    languagesCount: "१२ भाषा",
+    multilingualSupport: "बहुभाषिक सहाय्य",
+    ashaSupport: "आशा समर्थन",
+    localWorkerAssist: "स्थानिक आरोग्य कार्यकर्त्यांची मदत",
+    anyDevice: "कोणतेही डिव्हाइस",
+    deviceSupport: "फोन, टॅबलेट, कॉम्प्युटर",
+
+    videoConsultHowItWorks: "व्हिडिओ कन्सल्टेशन कसे काम करते",
+    schedule: "वेळापत्रक",
+    scheduleDesc: "पसंतीच्या डॉक्टरांसोबत अपॉइंटमेंट बुक करा",
+    prepare: "तयारी करा",
+    prepareDesc: "कॉल लिंक आणि सूचना प्राप्त करा",
+    connect: "कनेक्ट व्हा",
+    connectDesc: "निश्चित वेळेला व्हिडिओ कॉलमध्ये सामील व्हा",
+    followUp: "फॉलो-अप",
+    followUpDesc: "प्रिस्क्रिप्शन आणि पुढील स्टेप्स मिळवा",
+
+    uploadDocument: "डॉक्युमेंट अपलोड करा",
+    byDoctor: "डॉ.",
+    findings: "निष्कर्ष",
+    prescription: "प्रिस्क्रिप्शन",
+    download: "डाउनलोड",
+
+    collapseNavigation: "नेव्हिगेशन संकुचित करा",
+    expandNavigation: "नेव्हिगेशन विस्तृत करा",
 
     // Sidebar (Patient Dashboard)
     sidebarDashboard: "डॅशबोर्ड",
@@ -1127,6 +1427,81 @@ export const translations = {
     welcomeBack: "തിരികെ സ്വാഗതം",
     healthCompanion: "നിങ്ങളുടെ ആരോഗ്യ പങ്കാളി ഇവിടെ",
 
+        // === Extra keys used by PatientDashboard (Malayalam) ===
+    healthcareCompanion: "നിങ്ങളുടെ ആരോഗ്യ കൂട്ടുകാരൻ",
+    patientPortal: "രോഗി പോർട്ടൽ",
+    menu: "മെനു",
+    patientDefaultName: "രോഗി ഉപയോക്താവ്",
+    logout: "ലോഗ്ഔട്ട്",
+
+    dashboard: "ഡാഷ്ബോർഡ്",
+    vitalSigns: "വൈറ്റൽ സൈൻസ്",
+    healthAnalytics: "ആരോഗ്യ വിശകലനം",
+    bookConsultation: "കൺസൾട്ടേഷൻ ബുക്ക് ചെയ്യുക",
+    healthRecordsMenu: "ആരോഗ്യ രേഖകൾ",
+    videoCall: "വീഡിയോ കോൾ",
+
+    home: "ഹോം",
+    vitalsShort: "വൈറ്റൽ",
+    aiShort: "AI",
+    medsShort: "മരുന്നുകൾ",
+    recordsShort: "റിക്കോർഡുകൾ",
+
+    healthPriority: "നിങ്ങളുടെ ആരോഗ്യമാണ് എപ്പോഴും ഞങ്ങളുടെ മുൻഗണന.",
+    systemOnline: "സിസ്റ്റം ഓൺലൈൻ ആണ്",
+    healthcareReady: "ആരോഗ്യ സഹായം തയ്യാറാണ്",
+
+    upcomingAppointments: "വരാനിരിക്കുന്ന നിയമനങ്ങൾ",
+    next: "അടുത്തത്",
+    allUpdated: "എല്ലാം അപ്‌ഡേറ്റായി",
+    availableSchemes: "ലഭ്യമായ പദ്ധതികൾ",
+    readyToApply: "അപേക്ഷിക്കാൻ തയ്യാറാണ്",
+
+    quickActions: "ദ്രുത പ്രവർത്തനങ്ങൾ",
+    bloodTestResults: "രക്ത പരിശോധന ഫലങ്ങൾ അപ്‌ഡേറ്റ് ചെയ്തു",
+    allParametersNormal: "എല്ലാ പാരാമീറ്ററുകളും സാധാരണ • 2 ദിവസം മുമ്പ്",
+    appointmentScheduled: "ഡോ. രാജേഷ് കുമാറുമായുള്ള നിയമനം ഷെഡ്യൂൾ ചെയ്തു",
+    videoConsultSummary: "വീഡിയോ കൺസൾട്ടേഷൻ • 3 ദിവസം മുമ്പ്",
+
+    governmentSchemes: "നിങ്ങൾക്ക് അർഹതയുള്ളതാകാം എന്ന സർക്കാർ ആരോഗ്യ പദ്ധതികൾ",
+    eligibility: "അർഹത",
+    coverage: "കവറേജ്",
+
+    videoConsultation: "വീഡിയോ കൺസൾട്ടേഷൻ",
+    connectWithDoctors: "ആരോഗ്യ വിദഗ്ധരുമായി ബന്ധപ്പെടുക",
+    videoConsultBlurb:
+      "ഭാഷ സഹായത്തിനും സാംസ്‌കാരിക പശ്ചാത്തലത്തിനും ആശാ വർക്കർ പിന്തുണയോടെ ഡോക്ടർമാരോടൊപ്പം തടസ്സരഹിതമായ വീഡിയോ കൺസൾട്ടേഷൻ അനുഭവിക്കുക.",
+    joinScheduledCall: "ഷെഡ്യൂൾ ചെയ്ത കോൾയിൽ ചേരുക",
+    nextDoctorSlot: "ഡോ. രാജേഷ് കുമാർ • 10:00 AM",
+    scheduleNewCall: "പുതിയ കോൾ ഷെഡ്യൂൾ ചെയ്യുക",
+    bookAvailableDoctors: "ലഭ്യമായ ഡോക്ടർമാരുമായി ബുക്ക് ചെയ്യുക",
+
+    languagesCount: "12 ഭാഷകൾ",
+    multilingualSupport: "ബഹുഭാഷാ പിന്തുണ",
+    ashaSupport: "ആശാ പിന്തുണ",
+    localWorkerAssist: "പ്രാദേശിക ആരോഗ്യ പ്രവർത്തക സഹായം",
+    anyDevice: "ഏതെങ്കിലും ഉപകരണം",
+    deviceSupport: "ഫോൺ, ടാബ്ലറ്റ്, കമ്പ്യൂട്ടർ",
+
+    videoConsultHowItWorks: "വീഡിയോ കൺസൾട്ടേഷൻ എങ്ങനെ പ്രവർത്തിക്കുന്നു",
+    schedule: "ഷെഡ്യൂൾ",
+    scheduleDesc: "ഇഷ്ട ഡോക്ടറുമായി നിയമനം ബുക്ക് ചെയ്യുക",
+    prepare: "തയ്യാറെടുക്കുക",
+    prepareDesc: "കോൾ ലിങ്കും നിർദ്ദേശങ്ങളും ലഭിക്കുക",
+    connect: "കണക്റ്റ് ചെയ്യുക",
+    connectDesc: "നിശ്ചിത സമയത്ത് വീഡിയോ കോൾയിൽ ചേരുക",
+    followUp: "ഫോളോ-അപ്പ്",
+    followUpDesc: "പ്രിസ്ക്രിപ്ഷനും അടുത്ത നടപടികളും ലഭിക്കുക",
+
+    uploadDocument: "ഡോക്യുമെന്റ് അപ്‌ലോഡ് ചെയ്യുക",
+    byDoctor: "ഡോ.",
+    findings: "ഫൈൻഡിംഗ്സ്",
+    prescription: "പ്രിസ്ക്രിപ്ഷൻ",
+    download: "ഡൗൺലോഡ്",
+
+    collapseNavigation: "നാവിഗേഷൻ ചുരുക്കുക",
+    expandNavigation: "നാവിഗേഷൻ വിപുലീകരിക്കുക",
+
     // Sidebar (Patient Dashboard)
     sidebarDashboard: "ഡാഷ്ബോർഡ്",
     sidebarVitals: "വൈറ്റൽ സൈൻസ്",
@@ -1280,6 +1655,81 @@ export const translations = {
     // Header & Navigation
     welcomeBack: "ಹಿಂತಿರುಗಿ ಸ್ವಾಗತ",
     healthCompanion: "ನಿಮ್ಮ ಆರೋಗ್ಯ ಸಹಾಯಕರಿದ್ದಾರೆ",
+
+        // === Extra keys used by PatientDashboard (Kannada) ===
+    healthcareCompanion: "ನಿಮ್ಮ ಆರೋಗ್ಯ ಸಂಗಾತಿ",
+    patientPortal: "ಪೇಶಂಟ್ ಪೋರ್ಟಲ್",
+    menu: "ಮೆನು",
+    patientDefaultName: "ರೋಗಿ ಬಳಕೆದಾರ",
+    logout: "ಲಾಗ್‌ಔಟ್",
+
+    dashboard: "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    vitalSigns: "ವೈಟಲ್ ಸೈನ್ಸ್",
+    healthAnalytics: "ಆರೋಗ್ಯ ವಿಶ್ಲೇಷಣೆ",
+    bookConsultation: "ಕನ್ಸಲ್ಟೇಶನ್ ಬುಕ್ ಮಾಡಿ",
+    healthRecordsMenu: "ಆರೋಗ್ಯ ದಾಖಲೆಗಳು",
+    videoCall: "ವೀಡಿಯೊ ಕಾಲ್",
+
+    home: "ಹೋಮ್",
+    vitalsShort: "ವೈಟಲ್ಸ್",
+    aiShort: "AI",
+    medsShort: "ಔಷಧಿ",
+    recordsShort: "ರೆಕಾರ್ಡ್",
+
+    healthPriority: "ನಿಮ್ಮ ಆರೋಗ್ಯವೇ ನಮ್ಮ ಶಾಶ್ವತ ಪ್ರಾಥಮ್ಯ.",
+    systemOnline: "ಸಿಸ್ಟಮ್ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಇದೆ",
+    healthcareReady: "ಆರೋಗ್ಯ ಸಹಾಯ ಸಿದ್ಧವಾಗಿದೆ",
+
+    upcomingAppointments: "ಮುಂದಿನ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್‌ಗಳು",
+    next: "ಮುಂದಿನದು",
+    allUpdated: "ಎಲ್ಲವೂ ಅಪ್‌ಡೇಟ್ ಆಗಿದೆ",
+    availableSchemes: "ಲಭ್ಯ ಯೋಜನೆಗಳು",
+    readyToApply: "ಅಪ್ಲೈ ಮಾಡಲು ಸಿದ್ಧ",
+
+    quickActions: "ತ್ವರಿತ ಕ್ರಮಗಳು",
+    bloodTestResults: "ರಕ್ತ ಪರೀಕ್ಷೆಯ ಫಲಿತಾಂಶಗಳನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ",
+    allParametersNormal: "ಎಲ್ಲಾ ಪ್ಯಾರಾಮೀಟರ್‌ಗಳು ಸಾಮಾನ್ಯ • 2 ದಿನಗಳ ಹಿಂದೆ",
+    appointmentScheduled: "ಡಾ. ರಾಜೇಶ್ ಕುಮಾರ್ ಅವರೊಂದಿಗೆ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಶೆಡ್ಯೂಲ್ ಮಾಡಲಾಗಿದೆ",
+    videoConsultSummary: "ವೀಡಿಯೊ ಕನ್ಸಲ್ಟೇಶನ್ • 3 ದಿನಗಳ ಹಿಂದೆ",
+
+    governmentSchemes: "ನೀವು ಅರ್ಹರಾಗಿರುವ ಸಾಧ್ಯತೆಯಿರುವ ಸರ್ಕಾರಿ ಆರೋಗ್ಯ ಯೋಜನೆಗಳು",
+    eligibility: "ಅರ್ಹತೆ",
+    coverage: "ಕವರೆಜ್",
+
+    videoConsultation: "ವೀಡಿಯೊ ಕನ್ಸಲ್ಟೇಶನ್",
+    connectWithDoctors: "ಆರೋಗ್ಯ ತಜ್ಞರೊಂದಿಗೆ ಸಂಪರ್ಕಿಸು",
+    videoConsultBlurb:
+      "ಭಾಷಾ ಸಹಾಯ ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಅರ್ಥಗರ್ಭಿತತೆಗೆ ಆಶಾ ವರ್ಕರ್ ಬೆಂಬಲದೊಂದಿಗೆ, ವೈದ್ಯರೊಂದಿಗೆ ನಿರಂತರ ವೀಡಿಯೊ ಕನ್ಸಲ್ಟೇಶನ್ ಅನುಭವಿಸಿ.",
+    joinScheduledCall: "ಶೆಡ್ಯೂಲ್ ಮಾಡಿದ ಕರೆಗೂ ಸೇರಿ",
+    nextDoctorSlot: "ಡಾ. ರಾಜೇಶ್ ಕುಮಾರ್ • ಬೆಳಿಗ್ಗೆ 10:00",
+    scheduleNewCall: "ಹೊಸ ಕರೆ ಶೆಡ್ಯೂಲ್ ಮಾಡಿ",
+    bookAvailableDoctors: "ಲಭ್ಯ ವೈದ್ಯರೊಂದಿಗೆ ಬುಕ್ ಮಾಡಿ",
+
+    languagesCount: "12 ಭಾಷೆಗಳು",
+    multilingualSupport: "ಬಹುಭಾಷಾ ಬೆಂಬಲ",
+    ashaSupport: "ಆಶಾ ಬೆಂಬಲ",
+    localWorkerAssist: "ಸ್ಥಳೀಯ ಆರೋಗ್ಯ ಕಾರ್ಯಕರ್ತೆ ಸಹಾಯ",
+    anyDevice: "ಯಾವುದೇ ಸಾಧನ",
+    deviceSupport: "ಫೋನ್, ಟ್ಯಾಬ್ಲೆಟ್, ಕಂಪ್ಯೂಟರ್",
+
+    videoConsultHowItWorks: "ವೀಡಿಯೊ ಕನ್ಸಲ್ಟೇಶನ್ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ",
+    schedule: "ವೇಳಾಪಟ್ಟಿ",
+    scheduleDesc: "ಇಷ್ಟದ ವೈದ್ಯರೊಂದಿಗೆ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಬುಕ್ ಮಾಡಿ",
+    prepare: "ತಯಾರಿ ಮಾಡಿ",
+    prepareDesc: "ಕರೆ ಲಿಂಕ್ ಮತ್ತು ಸೂಚನೆಗಳನ್ನು ಸ್ವೀಕರಿಸಿ",
+    connect: "ಕನೆಕ್ಟ್ ಆಗಿ",
+    connectDesc: "ನಿಗದಿತ ಸಮಯದಲ್ಲಿ ವೀಡಿಯೊ ಕಾಲ್‌ಗೆ ಸೇರಿ",
+    followUp: "ಫಾಲೋ-ಅಪ್",
+    followUpDesc: "ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಮತ್ತು ಮುಂದಿನ ಹಂತಗಳನ್ನು ಪಡೆಯಿರಿ",
+
+    uploadDocument: "ಡಾಕ್ಯುಮೆಂಟ್ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ",
+    byDoctor: "ಡಾ.",
+    findings: "ಫೈಂಡಿಂಗ್ಸ್",
+    prescription: "ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್",
+    download: "ಡೌನ್‌ಲೋಡ್",
+
+    collapseNavigation: "ನವಿಗೇಶನ್ ಕುಗ್ಗಿಸಿ",
+    expandNavigation: "ನವಿಗೇಶನ್ ವಿಸ್ತರಿಸಿ",
 
     // Sidebar (Patient Dashboard)
     sidebarDashboard: "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
