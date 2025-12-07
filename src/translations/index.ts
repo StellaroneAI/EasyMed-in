@@ -104,6 +104,36 @@ export const translations = {
     invalidOtp: "Invalid OTP. Please try again.",
     loginSuccess: "Login Successful!",
 
+    // AI Health Assistant translations
+    aiAssistant: {
+      // Welcome and general prompts
+      welcomeMessage: "Hello! I'm your AI Health Assistant. I can help you with symptoms, medications, appointments, and health insights. How can I assist you today?",
+      askSymptom: "I understand you're experiencing some symptoms. Let me help you assess this. Can you describe your symptoms in more detail?",
+      appointmentHelp: "I can help you book an appointment. Which type of consultation would you prefer?",
+      checkVitals: "Let me check your latest vital signs and health metrics for you.",
+      emergencyHelp: "This sounds urgent. I'm here to help. Do you need immediate medical attention?",
+      trendResponse: "Your health trends look good overall! Your blood pressure has been stable, and your medication adherence is at 87%. Keep up the great work!",
+      defaultHelpPrefix: "I understand you said:",
+      defaultHelpSuffix: "I'm here to help with your health needs. What specific area would you like assistance with?",
+      actions: {
+        viewVitalSigns: "View Vital Signs",
+        healthAnalytics: "Health Analytics",
+        trackProgress: "Track Progress",
+        bookAppointment: "Book Appointment",
+        startVideoCall: "Start Video Call",
+        callEmergencyServices: "Call Emergency Services",
+        shareLocation: "Share Location",
+        contactDoctor: "Contact Doctor",
+        detailedAnalytics: "Detailed Analytics",
+        setNewGoals: "Set New Goals",
+        startSymptomChecker: "Start Symptom Checker",
+        emergencyHelp: "Emergency Help",
+        viewMedicationSchedule: "View Medication Schedule",
+        checkDrugInteractions: "Check Drug Interactions",
+        setReminder: "Set Reminder",
+      },
+    },
+
     // Home Page Content
     homepage: {
       getStarted: "Get Started",
