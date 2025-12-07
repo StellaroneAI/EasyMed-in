@@ -6,6 +6,89 @@ export const translations = {
     welcomeBack: "Welcome back",
     healthCompanion: "Your health companion is here",
 
+        // === NEW KEYS FOR PATIENT DASHBOARD ===
+    healthcareCompanion: "Your Healthcare Companion",
+    patientPortal: "Patient Portal",
+    menu: "Menu",
+    logout: "Logout",
+    patientDefaultName: "Patient User",
+
+    // Sidebar / Navigation labels used in PatientDashboard
+    dashboard: "Dashboard",
+    vitalSigns: "Vital Signs",
+    aiSymptomChecker: "AI Symptom Checker",
+    healthAnalytics: "Health Analytics",
+    medications: "Medications",
+    bookConsultation: "Book Consultation",
+    healthRecordsMenu: "Health Records",
+    videoCall: "Video Call",
+
+    // Mobile bottom nav short labels
+    home: "Home",
+    vitalsShort: "Vitals",
+    aiShort: "AI",
+    medsShort: "Meds",
+    recordsShort: "Records",
+
+    // Header / status chips in overview
+    healthPriority: "Your health is always our priority.",
+    systemOnline: "System online",
+    healthcareReady: "Healthcare support is ready",
+
+    // Overview cards
+    upcomingAppointments: "Upcoming appointments",
+    next: "next",
+    allUpdated: "All updated",
+    availableSchemes: "Available schemes",
+    readyToApply: "Ready to apply",
+
+    // Recent Activity extra keys
+    bloodTestResults: "Blood test results updated",
+    allParametersNormal: "All parameters normal • 2 days ago",
+    appointmentScheduled: "Appointment scheduled with Dr. Rajesh Kumar",
+    videoConsultSummary: "Video consultation • 3 days ago",
+
+    // Government schemes section
+    governmentSchemes: "Government health schemes you may be eligible for",
+    eligibility: "Eligibility",
+    coverage: "Coverage",
+
+    // Video consultation page
+    videoConsultation: "Video Consultation",
+    connectWithDoctors: "Connect with healthcare professionals",
+    videoConsultBlurb:
+      "Experience seamless video consultations with doctors, with ASHA worker support for language assistance and cultural context.",
+    joinScheduledCall: "Join scheduled call",
+    nextDoctorSlot: "Dr. Rajesh Kumar • 10:00 AM",
+    scheduleNewCall: "Schedule new call",
+    bookAvailableDoctors: "Book with available doctors",
+    languagesCount: "12 languages",
+    multilingualSupport: "Multilingual support",
+    ashaSupport: "ASHA support",
+    localWorkerAssist: "Local health worker assistance",
+    anyDevice: "Any device",
+    deviceSupport: "Phone, tablet, computer",
+    videoConsultHowItWorks: "How video consultation works",
+    schedule: "Schedule",
+    scheduleDesc: "Book appointment with preferred doctor",
+    prepare: "Prepare",
+    prepareDesc: "Receive call link and instructions",
+    connect: "Connect",
+    connectDesc: "Join video call at scheduled time",
+    followUp: "Follow-up",
+    followUpDesc: "Get prescription and next steps",
+
+    // Health records page actions
+    uploadDocument: "Upload document",
+    byDoctor: "By",
+    findings: "Findings",
+    prescription: "Prescription",
+    download: "Download",
+
+    // Navigation collapse/expand tooltips
+    collapseNavigation: "Collapse Navigation",
+    expandNavigation: "Expand Navigation",
+
     // Sidebar (Patient Dashboard)
     sidebarDashboard: "Dashboard",
     sidebarVitals: "Vital Signs",
