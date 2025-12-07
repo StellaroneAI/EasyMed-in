@@ -19,7 +19,9 @@ interface HealthContext {
 }
 
 export default function AIHealthAssistant() {
-  const { currentLanguage, getText } = useLanguage();
+  // Pull the translation function from the language context.  We don't
+  // destructure getText because useLanguage exposes `t` for translations.
+  const { currentLanguage, t } = useLanguage();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputText, setInputText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -45,9 +47,10 @@ export default function AIHealthAssistant() {
 
   useEffect(() => {
     // Welcome message
+    // Use the centralized translation for the AI assistant welcome message
     const welcomeMessage: ChatMessage = {
       id: "1",
-      text: `Hello! I'm your AI Health Assistant. I can help you with symptoms, medications, appointments, and health insights. How can I assist you today?`,
+      text: t('aiAssistant.welcomeMessage'),
       isUser: false,
       timestamp: new Date(),
       type: "text",
@@ -76,7 +79,8 @@ export default function AIHealthAssistant() {
     ) {
       response = {
         id: Date.now().toString(),
-        text: "I understand you're experiencing some symptoms. Let me help you assess this. Can you describe your symptoms in more detail?",
+        // Centralized translation for asking about symptoms
+        text: t('aiAssistant.askSymptom'),
         isUser: false,
         timestamp: new Date(),
         type: "suggestion",
@@ -87,8 +91,8 @@ export default function AIHealthAssistant() {
           "I'm running a fever",
         ],
         actions: [
-          { label: "🤖 Start Symptom Checker", action: "symptom-checker" },
-          { label: "🚨 Emergency Help", action: "emergency" },
+          { label: `🤖 ${t('aiAssistant.actions.startSymptomChecker')}`, action: "symptom-checker" },
+          { label: `🚨 ${t('aiAssistant.actions.emergencyHelp')}`, action: "emergency" },
         ],
       };
     } else if (
@@ -104,11 +108,11 @@ export default function AIHealthAssistant() {
         type: "text",
         actions: [
           {
-            label: "💊 View Medication Schedule",
+            label: `💊 ${t('aiAssistant.actions.viewMedicationSchedule')}`,
             action: "medication-manager",
           },
-          { label: "⚠️ Check Drug Interactions", action: "drug-interactions" },
-          { label: "🔔 Set Reminder", action: "set-reminder" },
+          { label: `⚠️ ${t('aiAssistant.actions.checkDrugInteractions')}`, action: "drug-interactions" },
+          { label: `🔔 ${t('aiAssistant.actions.setReminder')}`, action: "set-reminder" },
         ],
       };
     } else if (
@@ -118,7 +122,7 @@ export default function AIHealthAssistant() {
     ) {
       response = {
         id: Date.now().toString(),
-        text: "I can help you book an appointment. Which type of consultation would you prefer?",
+        text: t('aiAssistant.appointmentHelp'),
         isUser: false,
         timestamp: new Date(),
         type: "suggestion",
@@ -129,8 +133,8 @@ export default function AIHealthAssistant() {
           "Video Consultation",
         ],
         actions: [
-          { label: "📅 Book Appointment", action: "consultation-booking" },
-          { label: "📹 Start Video Call", action: "video-call" },
+          { label: `📅 ${t('aiAssistant.actions.bookAppointment')}`, action: "consultation-booking" },
+          { label: `📹 ${t('aiAssistant.actions.startVideoCall')}`, action: "video-call" },
         ],
       };
     } else if (
@@ -140,14 +144,14 @@ export default function AIHealthAssistant() {
     ) {
       response = {
         id: Date.now().toString(),
-        text: "Let me check your latest vital signs and health metrics for you.",
+        text: t('aiAssistant.checkVitals'),
         isUser: false,
         timestamp: new Date(),
         type: "text",
         actions: [
-          { label: "💓 View Vital Signs", action: "vital-dashboard" },
-          { label: "📊 Health Analytics", action: "health-analytics" },
-          { label: "📈 Track Progress", action: "progress-tracking" },
+          { label: `💓 ${t('aiAssistant.actions.viewVitalSigns')}`, action: "vital-dashboard" },
+          { label: `📊 ${t('aiAssistant.actions.healthAnalytics')}`, action: "health-analytics" },
+          { label: `📈 ${t('aiAssistant.actions.trackProgress')}`, action: "progress-tracking" },
         ],
       };
     } else if (
@@ -157,14 +161,14 @@ export default function AIHealthAssistant() {
     ) {
       response = {
         id: Date.now().toString(),
-        text: "This sounds urgent. I'm here to help. Do you need immediate medical attention?",
+        text: t('aiAssistant.emergencyHelp'),
         isUser: false,
         timestamp: new Date(),
         type: "warning",
         actions: [
-          { label: "🚨 Call Emergency Services", action: "emergency-call" },
-          { label: "📍 Share Location", action: "share-location" },
-          { label: "👨‍⚕️ Contact Doctor", action: "contact-doctor" },
+          { label: `🚨 ${t('aiAssistant.actions.callEmergencyServices')}`, action: "emergency-call" },
+          { label: `📍 ${t('aiAssistant.actions.shareLocation')}`, action: "share-location" },
+          { label: `👨‍⚕️ ${t('aiAssistant.actions.contactDoctor')}`, action: "contact-doctor" },
         ],
       };
     } else if (
@@ -174,19 +178,20 @@ export default function AIHealthAssistant() {
     ) {
       response = {
         id: Date.now().toString(),
-        text: "Your health trends look good overall! Your blood pressure has been stable, and your medication adherence is at 87%. Keep up the great work!",
+        text: t('aiAssistant.trendResponse'),
         isUser: false,
         timestamp: new Date(),
         type: "text",
         actions: [
-          { label: "📊 Detailed Analytics", action: "health-analytics" },
-          { label: "🎯 Set New Goals", action: "set-goals" },
+          { label: `📊 ${t('aiAssistant.actions.detailedAnalytics')}`, action: "health-analytics" },
+          { label: `🎯 ${t('aiAssistant.actions.setNewGoals')}`, action: "set-goals" },
         ],
       };
     } else {
       response = {
         id: Date.now().toString(),
-        text: `I understand you said: "${userInput}". I'm here to help with your health needs. What specific area would you like assistance with?`,
+        // Compose the default help message using translation pieces and the user's input
+        text: `${t('aiAssistant.defaultHelpPrefix')} "${userInput}". ${t('aiAssistant.defaultHelpSuffix')}`,
         isUser: false,
         timestamp: new Date(),
         type: "suggestion",
