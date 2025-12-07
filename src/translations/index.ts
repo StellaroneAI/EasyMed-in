@@ -3,76 +3,6 @@
 
 export const translations = {
   english: {
-        // Patient dashboard – common labels
-    patientPortal: "Patient Portal",
-    healthPriority: "Your health is always our priority.",
-    systemOnline: "System online",
-    healthcareReady: "Healthcare support is ready",
-
-    upcomingAppointments: "Upcoming appointments",
-    next: "next",
-    healthRecords: "Health records",
-    allUpdated: "All updated",
-    availableSchemes: "Available schemes",
-    readyToApply: "Ready to apply",
-
-    quickActions: "Quick actions",
-
-    videoCall: "Video Call",
-    startConsultation: "Start a video consultation with a doctor",
-
-    bookAppointment: "Book appointment",
-    scheduleVisit: "Schedule a visit",
-
-    prescriptions: "Prescriptions",
-    viewMedicines: "View medicines",
-
-    recentActivity: "Recent activity",
-    bloodTestResults: "Blood test results",
-
-    dashboard: "Dashboard",
-    vitalSigns: "Vital signs",
-    healthAnalytics: "Health analytics",
-    bookConsultation: "Book consultation",
-    healthRecordsMenu: "Health records",
-
-    logout: "Logout",
-    
-        // Patient dashboard – common labels
-    patientPortal: "Patient Portal",
-    healthPriority: "Your health is always our priority.",
-    systemOnline: "System online",
-    healthcareReady: "Healthcare support is ready",
-
-    upcomingAppointments: "Upcoming appointments",
-    next: "next",
-    healthRecords: "Health records",
-    allUpdated: "All updated",
-    availableSchemes: "Available schemes",
-    readyToApply: "Ready to apply",
-
-    quickActions: "Quick actions",
-
-    videoCall: "Video Call",
-    startConsultation: "Start a video consultation with a doctor",
-
-    bookAppointment: "Book appointment",
-    scheduleVisit: "Schedule a visit",
-
-    prescriptions: "Prescriptions",
-    viewMedicines: "View medicines",
-
-    recentActivity: "Recent activity",
-    bloodTestResults: "Blood test results",
-
-    dashboard: "Dashboard",
-    vitalSigns: "Vital signs",
-    healthAnalytics: "Health analytics",
-    bookConsultation: "Book consultation",
-    healthRecordsMenu: "Health records",
-
-    logout: "Logout",
-
     welcomeBack: "Welcome back",
     healthCompanion: "Your health companion is here",
 
@@ -217,112 +147,6 @@ export const translations = {
   },
 
   hindi: {
-        // Patient dashboard – common labels
-    patientPortal: "रोगी पोर्टल",
-    healthPriority: "आपका स्वास्थ्य हमेशा हमारी प्राथमिकता है।",
-    systemOnline: "सिस्टम ऑनलाइन है",
-    healthcareReady: "स्वास्थ्य सेवा सहायता तैयार है",
-
-    upcomingAppointments: "आगामी अपॉइंटमेंट्स",
-    next: "अगला",
-    healthRecords: "स्वास्थ्य रिकॉर्ड्स",
-    allUpdated: "सभी अपडेटेड",
-    availableSchemes: "उपलब्ध योजनाएँ",
-    readyToApply: "आवेदन के लिए तैयार",
-
-    quickActions: "त्वरित कार्य",
-
-    videoCall: "वीडियो कॉल",
-    startConsultation: "डॉक्टर से वीडियो परामर्श शुरू करें",
-
-    bookAppointment: "अपॉइंटमेंट बुक करें",
-    scheduleVisit: "भेंट शेड्यूल करें",
-
-    prescriptions: "प्रिस्क्रिप्शन",
-    viewMedicines: "दवाइयाँ देखें",
-
-    recentActivity: "हाल की गतिविधि",
-    bloodTestResults: "रक्त जांच परिणाम",
-
-    dashboard: "डैशबोर्ड",
-    vitalSigns: "जीवन संकेत",
-    healthAnalytics: "स्वास्थ्य विश्लेषण",
-    bookConsultation: "कंसल्टेशन बुक करें",
-    healthRecordsMenu: "स्वास्थ्य रिकॉर्ड्स",
-
-    logout: "लॉगआउट",
-    
-        // Patient dashboard – common labels
-    patientPortal: "रोगी पोर्टल",
-    healthPriority: "आपका स्वास्थ्य हमेशा हमारी प्राथमिकता है।",
-    systemOnline: "सिस्टम ऑनलाइन है",
-    healthcareReady: "स्वास्थ्य सेवा सहायता तैयार है",
-
-    upcomingAppointments: "आगामी अपॉइंटमेंट्स",
-    next: "अगला",
-    healthRecords: "स्वास्थ्य रिकॉर्ड्स",
-    allUpdated: "सभी अपडेटेड",
-    availableSchemes: "उपलब्ध योजनाएँ",
-    readyToApply: "आवेदन के लिए तैयार",
-
-    quickActions: "त्वरित कार्य",
-
-    videoCall: "वीडियो कॉल",
-    startConsultation: "डॉक्टर से वीडियो परामर्श शुरू करें",
-
-    bookAppointment: "अपॉइंटमेंट बुक करें",
-    scheduleVisit: "भेंट शेड्यूल करें",
-
-    prescriptions: "प्रिस्क्रिप्शन",
-    viewMedicines: "दवाइयाँ देखें",
-
-    recentActivity: "हाल की गतिविधि",
-    bloodTestResults: "रक्त जांच परिणाम",
-
-    dashboard: "डैशबोर्ड",
-    vitalSigns: "जीवन संकेत",
-    healthAnalytics: "स्वास्थ्य विश्लेषण",
-    bookConsultation: "कंसल्टेशन बुक करें",
-    healthRecordsMenu: "स्वास्थ्य रिकॉर्ड्स",
-
-    logout: "लॉगआउट",
-      hindi: {
-    
-    // Patient dashboard – common labels
-    patientPortal: "रोगी पोर्टल",
-    healthPriority: "आपका स्वास्थ्य हमेशा हमारी प्राथमिकता है।",
-    systemOnline: "सिस्टम ऑनलाइन है",
-    healthcareReady: "स्वास्थ्य सेवा सहायता तैयार है",
-
-    upcomingAppointments: "आगामी अपॉइंटमेंट्स",
-    next: "अगला",
-    healthRecords: "स्वास्थ्य रिकॉर्ड्स",
-    allUpdated: "सभी अपडेटेड",
-    availableSchemes: "उपलब्ध योजनाएँ",
-    readyToApply: "आवेदन के लिए तैयार",
-
-    quickActions: "त्वरित कार्य",
-
-    videoCall: "वीडियो कॉल",
-    startConsultation: "डॉक्टर से वीडियो परामर्श शुरू करें",
-
-    bookAppointment: "अपॉइंटमेंट बुक करें",
-    scheduleVisit: "भेंट शेड्यूल करें",
-
-    prescriptions: "प्रिस्क्रिप्शन",
-    viewMedicines: "दवाइयाँ देखें",
-
-    recentActivity: "हाल की गतिविधि",
-    bloodTestResults: "रक्त जांच परिणाम",
-
-    dashboard: "डैशबोर्ड",
-    vitalSigns: "जीवन संकेत",
-    healthAnalytics: "स्वास्थ्य विश्लेषण",
-    bookConsultation: "कंसल्टेशन बुक करें",
-    healthRecordsMenu: "स्वास्थ्य रिकॉर्ड्स",
-
-    logout: "लॉगआउट",
-    
     // Header & Navigation
     welcomeBack: "वापस स्वागत है",
     healthCompanion: "आपका स्वास्थ्य साथी यहाँ है",
@@ -1327,10 +1151,47 @@ export const translations = {
       empathyTitle: "ಸಹಾನುಭೂತಿ",
       empathyDesc: "ದೈನಂದಿನ ಅನುಭವಗಳಿಂದ ಪ್ರೇರಿತ ಮತ್ತು ಆರೋಗ್ಯ ರಕ್ಷಣೆಗಾಗಿ ಸಹಾನುಭೂತಿಯಿಂದ ರಚಿಸಲಾಗಿದೆ.",
       purposeTitle: "ಉದ್ದೇಶ",
-            purposeDesc: "ಈ ಯೋಜನೆಯು ಕೇವಲ ಕೋಡ್ ಅಲ್ಲ. ಇದು ಒಂದು ಬದ್ಧತೆ. ಕೇವಲ ಒಂದು ವೇದಿಕೆಯಲ್ಲ, ಒಂದು ಭರವಸೆ."
+      purposeDesc: "ಈ ಯೋಜನೆಯು ಕೇವಲ ಕೋಡ್ ಅಲ್ಲ. ಇದು ಒಂದು ಬದ್ಧತೆ. ಕೇವಲ ಒಂದು ವೇದಿಕೆಯಲ್ಲ, ಒಂದು ಭರವಸೆ."
     },
   },
 } as const;
+
+/**
+ * Deeply copies missing keys from the English translation into each of the
+ * other language objects.  This helper runs at module load time and
+ * ensures that every language has all keys defined in the English source.
+ * If a key is already present in the target language it will not be
+ * overwritten.  Nested objects are filled recursively.
+ */
+function deepFillMissing(source: any, target: any): void {
+  Object.keys(source).forEach((key) => {
+    const srcVal = source[key];
+    const tgtVal = target[key];
+    if (srcVal && typeof srcVal === 'object' && !Array.isArray(srcVal)) {
+      // Ensure nested object exists on target
+      if (!tgtVal || typeof tgtVal !== 'object' || Array.isArray(tgtVal)) {
+        target[key] = {};
+      }
+      // Recurse into nested object
+      deepFillMissing(srcVal, target[key]);
+    } else {
+      // Copy primitive or array values if missing
+      if (target[key] === undefined) {
+        target[key] = srcVal;
+      }
+    }
+  });
+}
+
+// Fill missing translation keys for all languages using English as the base.
+(() => {
+  const base = (translations as any).english;
+  Object.keys(translations).forEach((lang) => {
+    if (lang !== 'english') {
+      deepFillMissing(base, (translations as any)[lang]);
+    }
+  });
+})();
 
 export type LanguageKey = keyof typeof translations;
 export type TranslationKey = keyof typeof translations.english;
