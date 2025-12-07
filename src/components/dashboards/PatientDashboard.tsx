@@ -21,15 +21,14 @@ export default function PatientDashboard({
   onLogout,
 }: PatientDashboardProps) {
   const [activeSection, setActiveSection] = useState("overview");
-const [isNavCollapsed, setIsNavCollapsed] = useState(false);
+  const [isNavCollapsed, setIsNavCollapsed] = useState(false);
   const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-const { t, currentLanguage } = useLanguage();
+  const { t } = useLanguage();
 
   const getText = (key: string): string => {
     return t(key);
   };
-
 
   const appointments = [
     {
@@ -96,9 +95,9 @@ const { t, currentLanguage } = useLanguage();
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Modern Header with Gradient */}
-      <header className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 shadow-xl">
+      <header className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-4">
@@ -123,8 +122,18 @@ const { t, currentLanguage } = useLanguage();
                 onClick={() => setIsMobileMenuOpen(true)}
                 className="lg:hidden p-2 rounded-lg bg-white/20 text-white hover:bg-white/30 transition-all duration-200"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               </button>
 
@@ -155,7 +164,10 @@ const { t, currentLanguage } = useLanguage();
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="fixed inset-0 bg-black/50" onClick={() => setIsMobileMenuOpen(false)} />
+          <div
+            className="fixed inset-0 bg-black/50"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
           <div className="fixed inset-y-0 left-0 z-50 w-80 bg-white shadow-xl transform transition-transform duration-300">
             <div className="flex items-center justify-between p-4 border-b">
               <h2 className="text-lg font-semibold text-gray-900">Menu</h2>
@@ -163,8 +175,18 @@ const { t, currentLanguage } = useLanguage();
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="p-2 rounded-lg text-gray-500 hover:bg-gray-100"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
@@ -237,9 +259,9 @@ const { t, currentLanguage } = useLanguage();
                       setActiveSection(item.id);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-300 flex items-center space-x-3 group ${
+                    className={`w-full text-left px-4 py-3 rounded-xl transition-colors duration-200 flex items-center space-x-3 group ${
                       activeSection === item.id
-                        ? `bg-gradient-to-r ${item.color} text-white shadow-lg`
+                        ? `bg-gradient-to-r ${item.color} text-white shadow-md`
                         : "text-gray-700 hover:bg-gray-100"
                     }`}
                   >
@@ -264,125 +286,146 @@ const { t, currentLanguage } = useLanguage();
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Desktop Sidebar Navigation - Hidden on mobile */}
-          <div className={`hidden lg:block ${isNavCollapsed ? 'lg:w-20' : 'lg:w-64'} transition-all duration-300 ease-in-out`}>
-            <nav className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 relative overflow-hidden sticky top-8">
+          <div
+            className={`hidden lg:block ${
+              isNavCollapsed ? "lg:w-20" : "lg:w-64"
+            } transition-all duration-300 ease-in-out`}
+          >
+            <nav className="bg-white rounded-2xl shadow-sm border border-gray-200 relative overflow-hidden sticky top-8">
               {/* Collapse Toggle Button */}
               <button
                 onClick={() => setIsNavCollapsed(!isNavCollapsed)}
-                className="absolute top-4 right-4 z-10 p-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 transition-all duration-200 shadow-lg flex items-center justify-center"
-                title={isNavCollapsed ? 'Expand Navigation' : 'Collapse Navigation'}
+                className="absolute top-4 right-4 z-10 p-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 transition-all duration-200 shadow-md flex items-center justify-center"
+                title={isNavCollapsed ? "Expand Navigation" : "Collapse Navigation"}
               >
-                <svg 
-                  className={`w-4 h-4 transition-transform duration-200 ${isNavCollapsed ? 'rotate-180' : ''}`} 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    isNavCollapsed ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
-              
-              <div className={`p-6 ${isNavCollapsed ? 'px-3' : ''} transition-all duration-300`}>
-              {!isNavCollapsed && (
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl text-white">👤</span>
-                  </div>
-                  <h3 className="text-center font-semibold text-gray-800">
-                    {userInfo?.name || "Patient Dashboard"}
-                  </h3>
-                  <p className="text-center text-sm text-gray-600">
-                    {userInfo?.email || "Healthcare Portal"}
-                  </p>
-                </div>
-              )}
-              
-              {isNavCollapsed && (
-                <div className="mb-6 flex justify-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                    <span className="text-xl text-white">👤</span>
-                  </div>
-                </div>
-              )}
 
-              <ul className="space-y-2">
-                {[
-                  {
-                    id: "overview",
-                    name: getText("dashboard"),
-                    icon: "📊",
-                    color: "from-blue-500 to-blue-600",
-                  },
-                  {
-                    id: "vital-dashboard",
-                    name: getText("vitalSigns"),
-                    icon: "💓",
-                    color: "from-red-500 to-pink-600",
-                  },
-                  {
-                    id: "symptom-checker",
-                    name: getText("aiSymptomChecker"),
-                    icon: "🤖",
-                    color: "from-purple-500 to-indigo-600",
-                  },
-                  {
-                    id: "health-analytics",
-                    name: getText("healthAnalytics"),
-                    icon: "📈",
-                    color: "from-green-500 to-emerald-600",
-                  },
-                  {
-                    id: "medication-manager",
-                    name: getText("medications"),
-                    icon: "💊",
-                    color: "from-blue-500 to-cyan-600",
-                  },
-                  {
-                    id: "consultation-booking",
-                    name: getText("bookConsultation"),
-                    icon: "🩺",
-                    color: "from-teal-500 to-green-600",
-                  },
-                  {
-                    id: "health-records",
-                    name: getText("healthRecordsMenu"),
-                    icon: "📋",
-                    color: "from-purple-500 to-purple-600",
-                  },
-                  {
-                    id: "video-consultation",
-                    name: getText("videoCall"),
-                    icon: "📹",
-                    color: "from-red-500 to-red-600",
-                  },
-                ].map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => setActiveSection(item.id)}
-                      className={`w-full text-left ${isNavCollapsed ? 'px-2 py-3 justify-center' : 'px-4 py-3'} rounded-xl transition-all duration-300 flex items-center ${isNavCollapsed ? 'space-x-0' : 'space-x-3'} group ${
-                        activeSection === item.id
-                          ? `bg-gradient-to-r ${item.color} text-white shadow-lg transform scale-105`
-                          : "text-gray-700 hover:bg-gray-100 hover:scale-102"
-                      }`}
-                      title={isNavCollapsed ? item.name : ''}
-                    >
-                      <div
-                        className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+              <div
+                className={`p-6 ${
+                  isNavCollapsed ? "px-3" : ""
+                } transition-all duration-300`}
+              >
+                {!isNavCollapsed && (
+                  <div className="mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl text-white">👤</span>
+                    </div>
+                    <h3 className="text-center font-semibold text-gray-800">
+                      {userInfo?.name || "Patient Dashboard"}
+                    </h3>
+                    <p className="text-center text-sm text-gray-600">
+                      {userInfo?.email || "Healthcare Portal"}
+                    </p>
+                  </div>
+                )}
+
+                {isNavCollapsed && (
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                      <span className="text-xl text-white">👤</span>
+                    </div>
+                  </div>
+                )}
+
+                <ul className="space-y-2">
+                  {[
+                    {
+                      id: "overview",
+                      name: getText("dashboard"),
+                      icon: "📊",
+                      color: "from-blue-500 to-blue-600",
+                    },
+                    {
+                      id: "vital-dashboard",
+                      name: getText("vitalSigns"),
+                      icon: "💓",
+                      color: "from-red-500 to-pink-600",
+                    },
+                    {
+                      id: "symptom-checker",
+                      name: getText("aiSymptomChecker"),
+                      icon: "🤖",
+                      color: "from-purple-500 to-indigo-600",
+                    },
+                    {
+                      id: "health-analytics",
+                      name: getText("healthAnalytics"),
+                      icon: "📈",
+                      color: "from-green-500 to-emerald-600",
+                    },
+                    {
+                      id: "medication-manager",
+                      name: getText("medications"),
+                      icon: "💊",
+                      color: "from-blue-500 to-cyan-600",
+                    },
+                    {
+                      id: "consultation-booking",
+                      name: getText("bookConsultation"),
+                      icon: "🩺",
+                      color: "from-teal-500 to-green-600",
+                    },
+                    {
+                      id: "health-records",
+                      name: getText("healthRecordsMenu"),
+                      icon: "📋",
+                      color: "from-purple-500 to-purple-600",
+                    },
+                    {
+                      id: "video-consultation",
+                      name: getText("videoCall"),
+                      icon: "📹",
+                      color: "from-red-500 to-red-600",
+                    },
+                  ].map((item) => (
+                    <li key={item.id}>
+                      <button
+                        onClick={() => setActiveSection(item.id)}
+                        className={`w-full text-left ${
+                          isNavCollapsed
+                            ? "px-2 py-3 justify-center"
+                            : "px-4 py-3"
+                        } rounded-xl transition-colors duration-200 flex items-center ${
+                          isNavCollapsed ? "space-x-0 justify-center" : "space-x-3"
+                        } ${
                           activeSection === item.id
-                            ? "bg-white/20"
-                            : `bg-gradient-to-r ${item.color} text-white group-hover:scale-110 transition-transform`
+                            ? "bg-blue-50 text-blue-700"
+                            : "text-gray-700 hover:bg-gray-50"
                         }`}
+                        title={isNavCollapsed ? item.name : ""}
                       >
-                        <span className="text-sm">{item.icon}</span>
-                      </div>
-                      {!isNavCollapsed && (
-                        <span className="font-medium">{item.name}</span>
-                      )}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                        <div
+                          className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                            activeSection === item.id
+                              ? "bg-blue-100 text-blue-700"
+                              : `bg-gradient-to-r ${item.color} text-white`
+                          }`}
+                        >
+                          <span className="text-sm">{item.icon}</span>
+                        </div>
+                        {!isNavCollapsed && (
+                          <span className="font-medium">{item.name}</span>
+                        )}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </nav>
           </div>
 
@@ -391,34 +434,38 @@ const { t, currentLanguage } = useLanguage();
             {activeSection === "overview" && (
               <div className="space-y-8">
                 {/* Welcome Card with Avatar */}
-                <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 rounded-2xl p-8 text-white shadow-2xl">
+                <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
                   <div className="flex items-center space-x-6">
-                    <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                    <div className="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center">
                       <span className="text-3xl">👋</span>
                     </div>
                     <div>
-                      <h2 className="text-3xl font-bold mb-2">
+                      <h2 className="text-3xl font-bold mb-2 text-gray-900">
                         {getText("welcomeBack")}, {userInfo?.name || "Patient"}!
                       </h2>
-                      <p className="text-blue-100 text-lg">
+                      <p className="text-gray-600 text-lg">
                         {getText("healthPriority")}
                       </p>
                       <div className="flex items-center space-x-4 mt-4">
-                        <div className="flex items-center space-x-2 bg-white/10 px-3 py-1 rounded-full">
+                        <div className="flex items-center space-x-2 bg-green-50 px-3 py-1 rounded-full border border-green-100">
                           <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                          <span className="text-sm">{getText("systemOnline")}</span>
+                          <span className="text-sm text-green-700">
+                            {getText("systemOnline")}
+                          </span>
                         </div>
-                        <div className="flex items-center space-x-2 bg-white/10 px-3 py-1 rounded-full">
-                          <span className="text-sm">🏥 {getText("healthcareReady")}</span>
+                        <div className="flex items-center space-x-2 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                          <span className="text-sm text-blue-700">
+                            🏥 {getText("healthcareReady")}
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Animated Stats Cards */}
+                {/* Stats Cards - cleaner, no scaling */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-transform duration-200 hover:-translate-y-0.5">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-600 text-sm font-medium">
@@ -431,13 +478,13 @@ const { t, currentLanguage } = useLanguage();
                           📅 {getText("next")}: Tomorrow 10 AM
                         </p>
                       </div>
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center">
-                        <span className="text-2xl text-white">📅</span>
+                      <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center">
+                        <span className="text-2xl">📅</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-transform duration-200 hover:-translate-y-0.5">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-600 text-sm font-medium">
@@ -450,13 +497,13 @@ const { t, currentLanguage } = useLanguage();
                           📋 {getText("allUpdated")}
                         </p>
                       </div>
-                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center">
-                        <span className="text-2xl text-white">📋</span>
+                      <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center">
+                        <span className="text-2xl">📋</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-transform duration-200 hover:-translate-y-0.5">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-gray-600 text-sm font-medium">
@@ -465,7 +512,7 @@ const { t, currentLanguage } = useLanguage();
                         <p className="text-3xl font-bold text-green-600 mt-1">
                           {
                             governmentSchemes.filter(
-                              (s) => s.status === "Eligible",
+                              (s) => s.status === "Eligible"
                             ).length
                           }
                         </p>
@@ -473,15 +520,15 @@ const { t, currentLanguage } = useLanguage();
                           🏛️ {getText("readyToApply")}
                         </p>
                       </div>
-                      <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center">
-                        <span className="text-2xl text-white">🏛️</span>
+                      <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center">
+                        <span className="text-2xl">🏛️</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
-{/* Quick Actions with Beautiful Cards */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-white/20">
+                {/* Quick Actions with Beautiful Cards (no scale) */}
+                <div className="bg-white rounded-2xl shadow-sm p-8 border border-gray-100">
                   <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                     <span className="mr-3">⚡</span>
                     {getText("quickActions")}
@@ -510,9 +557,9 @@ const { t, currentLanguage } = useLanguage();
                     ].map((action, index) => (
                       <button
                         key={index}
-                        className={`p-6 rounded-2xl bg-gradient-to-br ${action.color} text-white hover:shadow-xl transition-all duration-300 hover:scale-105 group`}
+                        className={`p-6 rounded-2xl bg-gradient-to-br ${action.color} text-white hover:shadow-md transition-transform duration-200 hover:-translate-y-0.5 group`}
                       >
-                        <div className="text-3xl mb-3 group-hover:scale-110 transition-transform">
+                        <div className="text-3xl mb-3">
                           {action.icon}
                         </div>
                         <h4 className="font-bold text-lg">{action.title}</h4>
@@ -523,7 +570,7 @@ const { t, currentLanguage } = useLanguage();
                 </div>
 
                 {/* Recent Activity with Modern Design */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-white/20">
+                <div className="bg-white rounded-2xl shadow-sm p-8 border border-gray-100">
                   <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                     <span className="mr-3">📈</span>
                     {getText("recentActivity")}
@@ -560,7 +607,6 @@ const { t, currentLanguage } = useLanguage();
               </div>
             )}
 
-
             {activeSection === "video-consultation" && (
               <div className="space-y-8">
                 <div className="flex items-center justify-between">
@@ -570,7 +616,7 @@ const { t, currentLanguage } = useLanguage();
                   </h2>
                 </div>
 
-                <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-2xl p-8 text-white shadow-2xl">
+                <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-2xl p-8 text-white shadow-md">
                   <div className="text-center">
                     <div className="w-24 h-24 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
                       <span className="text-4xl">📹</span>
@@ -585,7 +631,7 @@ const { t, currentLanguage } = useLanguage();
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                      <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg">
+                      <button className="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-2xl transition-transform duration-200 hover:-translate-y-0.5 shadow-md">
                         <div className="text-2xl mb-2">🎥</div>
                         <div className="font-bold">Join Scheduled Call</div>
                         <div className="text-sm opacity-90">
@@ -593,7 +639,7 @@ const { t, currentLanguage } = useLanguage();
                         </div>
                       </button>
 
-                      <button className="bg-white text-blue-600 px-8 py-4 rounded-2xl hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-lg font-bold">
+                      <button className="bg-white text-blue-600 px-8 py-4 rounded-2xl hover:bg-blue-50 transition-transform duration-200 hover:-translate-y-0.5 shadow-md font-bold">
                         <div className="text-2xl mb-2">📅</div>
                         <div>Schedule New Call</div>
                         <div className="text-sm opacity-70">
@@ -629,7 +675,7 @@ const { t, currentLanguage } = useLanguage();
                 </div>
 
                 {/* Video Features */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-white/20">
+                <div className="bg-white rounded-2xl shadow-sm p-8 border border-gray-100">
                   <h3 className="text-xl font-bold text-gray-800 mb-6">
                     How Video Consultation Works
                   </h3>
@@ -677,7 +723,6 @@ const { t, currentLanguage } = useLanguage();
               </div>
             )}
 
-
             {activeSection === "health-records" && (
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
@@ -693,7 +738,7 @@ const { t, currentLanguage } = useLanguage();
                   {healthRecords.map((record) => (
                     <div
                       key={record.id}
-                      className="bg-white p-6 rounded-lg shadow"
+                      className="bg-white p-6 rounded-lg shadow-sm border border-gray-100"
                     >
                       <div className="flex justify-between items-start">
                         <div>
@@ -737,7 +782,6 @@ const { t, currentLanguage } = useLanguage();
             {activeSection === "consultation-booking" && (
               <ConsultationBooking />
             )}
-
           </div>
         </div>
       </div>
@@ -768,7 +812,7 @@ const { t, currentLanguage } = useLanguage();
             <button
               key={item.id}
               onClick={() => setActiveSection(item.id)}
-              className={`flex flex-col items-center justify-center py-2 px-1 rounded-lg transition-all duration-200 ${
+              className={`flex flex-col items-center justify-center py-2 px-1 rounded-lg transition-colors duration-200 ${
                 activeSection === item.id
                   ? "bg-blue-50 text-blue-600"
                   : "text-gray-600 hover:bg-gray-50"
@@ -783,9 +827,11 @@ const { t, currentLanguage } = useLanguage();
               >
                 <span className="text-sm">{item.icon}</span>
               </div>
-              <span className={`text-xs font-medium truncate ${
-                activeSection === item.id ? "text-blue-600" : "text-gray-600"
-              }`}>
+              <span
+                className={`text-xs font-medium truncate ${
+                  activeSection === item.id ? "text-blue-600" : "text-gray-600"
+                }`}
+              >
                 {item.name}
               </span>
             </button>
@@ -793,7 +839,7 @@ const { t, currentLanguage } = useLanguage();
         </div>
       </div>
 
-{/* Spacer for mobile bottom navigation */}
+      {/* Spacer for mobile bottom navigation */}
       <div className="h-20 lg:hidden"></div>
 
       {/* AI Health Assistant Chatbot */}
@@ -806,10 +852,7 @@ const { t, currentLanguage } = useLanguage();
 
       {/* Floating Action Menu - Hidden on mobile */}
       <div className="hidden lg:block">
-        <FloatingMenu
-          onMenuSelect={setActiveSection}
-          activeMenu={activeSection}
-        />
+        <FloatingMenu onMenuSelect={setActiveSection} activeMenu={activeSection} />
       </div>
     </div>
   );
