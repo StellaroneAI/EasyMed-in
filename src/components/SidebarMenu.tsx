@@ -51,17 +51,22 @@ export default function SidebarMenu({
     hindi: {
       dashboard: "डैशबोर्ड",
       aiChat: "AI स्वास्थ्य सहायक",
-      appointments: "अपॉइंटमेंट बुक करें",
+      // Align with global translations: "Book consultation" should be translated
+      // using the same phrasing as the patient dashboard sidebar.
+      appointments: "कंसल्टेशन बुक करें",
       telemedicine: "टेलीमेडिसिन",
       familyHealth: "पारिवारिक स्वास्थ्य",
-      vitalsMonitoring: "वाइटल मॉनिटरिंग",
+      // Use the Hindi term for "Vital Signs" consistent with the translations file
+      vitalsMonitoring: "जीवन संकेत",
       healthRecords: "स्वास्थ्य रिकॉर्ड",
       education: "स्वास्थ्य शिक्षा",
       ashaWorker: "आशा वर्कर हब",
       emergency: "आपातकालीन सेवाएं",
-      symptomChecker: "लक्षण जांचकर्ता",
+      // Prefix with AI and use the same term as in the translations file
+      symptomChecker: "AI लक्षण जाँचकर्ता",
       healthAnalytics: "स्वास्थ्य विश्लेषण",
-      medicationManager: "दवा प्रबंधक",
+      // Simplify to "Medications" (दवाइयाँ) to match the sidebar label in the translations file
+      medicationManager: "दवाइयाँ",
       emergencySystem: "आपातकालीन सिस्टम",
       pwaFeatures: "PWA सुविधाएं",
       iotDevices: "IoT डिवाइस",
@@ -71,17 +76,21 @@ export default function SidebarMenu({
     tamil: {
       dashboard: "டாஷ்போர்ட்",
       aiChat: "AI சுகாதார உதவியாளர்",
-      appointments: "அப்பாயின்மென்ட் புக்",
+      // Align with translations: "Consultation booking" in Tamil
+      appointments: "ஆலோசனை முன்பதிவு செய்யுங்கள்",
       telemedicine: "டெலிமெடிசின்",
       familyHealth: "குடும்ப சுகாதாரம்",
-      vitalsMonitoring: "உயிர்ச்சக்தி கண்காணிப்பு",
+      // Use the Tamil term for "Vital Signs" as defined in translations
+      vitalsMonitoring: "உடல் முக்கிய அறிகுறிகள்",
       healthRecords: "சுகாதார பதிவுகள்",
       education: "சுகாதார கல்வி",
       ashaWorker: "ஆசா தொழிலாளர் மையம்",
       emergency: "அவசர சேவைகள்",
-      symptomChecker: "அறிகுறி சரிபார்ப்பு",
+      // Prefix with AI and use the same term as in the translations file
+      symptomChecker: "AI அறிகுறி சரிபார்ப்பாளர்",
       healthAnalytics: "சுகாதார பகுப்பாய்வு",
-      medicationManager: "மருந்து மேலாளர்",
+      // Simplify to "Medications" consistent with the sidebar label
+      medicationManager: "மருந்துகள்",
       emergencySystem: "அவசர அமைப்பு",
       pwaFeatures: "PWA அம்சங்கள்",
       iotDevices: "IoT சாதனங்கள்",
