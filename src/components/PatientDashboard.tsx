@@ -1,15 +1,15 @@
 import { useState } from "react";
-import LanguageSelector from "../LanguageSelector";
-import AIAssistantCard from "../ai/AIAssistantCard";
-import AIHealthAssistant from "../ai/AIHealthAssistant";
-import FloatingMenu from "../FloatingMenu";
-import VitalDashboard from "../VitalDashboard";
-import ConsultationBooking from "../ConsultationBooking";
-import SymptomChecker from "../SymptomChecker";
-import HealthAnalytics from "../HealthAnalytics";
-import MedicationManager from "../MedicationManager";
-import EmergencySystem from "../EmergencySystem";
-import { useLanguage } from "../../contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
+import AIAssistantCard from "./ai/AIAssistantCard";
+import AIHealthAssistant from "./ai/AIHealthAssistant";
+import FloatingMenu from "./FloatingMenu";
+import VitalDashboard from "./VitalDashboard";
+import ConsultationBooking from "./ConsultationBooking";
+import SymptomChecker from "./SymptomChecker";
+import HealthAnalytics from "./HealthAnalytics";
+import MedicationManager from "./MedicationManager";
+import EmergencySystem from "./EmergencySystem";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface PatientDashboardProps {
   userInfo: any;
