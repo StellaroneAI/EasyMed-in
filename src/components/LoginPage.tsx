@@ -1,764 +1,309 @@
-import { useState, useEffect } from "react";
-import { Chrome, Apple, Facebook } from "lucide-react";
-import { useLanguage } from "../contexts/LanguageContext";
-import { useAdmin } from "../contexts/AdminContext";
-import { dbService } from "../services/mockDatabase";
+import { useState } from "react";
 import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "../contexts/LanguageContext";
 
-interface LoginPageProps {
-  onLogin: (
-    userType: "patient",
-    userInfo: any,
-  ) => void;
-}
+type LoginMode = "phone" | "email";
 
-export default function LoginPage({ onLogin }: LoginPageProps) {
-  const { t, currentLanguage } = useLanguage();
-  const { loginAdmin } = useAdmin();
-  const [activeTab, setActiveTab] = useState<
-    "patient"
-  >("patient");
-  const [loginMethod, setLoginMethod] = useState<"phone" | "email" | "social">(
-    "phone",
-  );
-  const [phoneNumber, setPhoneNumber] = useState("");
+export default function ModernLoginPage() {
+  const { t } = useLanguage();
+
+  const getText = (key: string): string => t(key);
+
+  const [mode, setMode] = useState<LoginMode>("phone");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
-  const [showOTP, setShowOTP] = useState(false);
+  const [otpSent, setOtpSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [generatedOTP, setGeneratedOTP] = useState("");
-  const [message, setMessage] = useState("");
 
-  // Handle Enter key press
-  const handleKeyPress = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      if (showOTP) {
-        handleVerifyOTP();
-      } else if (loginMethod === "phone" && phoneNumber) {
-        handleSendOTP();
-      } else if (loginMethod === "email" && email && password) {
-        handleLogin();
-      }
-    }
-  };
-
-  // Handle OTP verification
-  const handleVerifyOTP = async () => {
-    if (otp === generatedOTP || otp === "123456") {
-      await handleLogin();
-    } else {
-      const errorMsg = t("invalidOtp");
-      setMessage(errorMsg);
-    }
-  };
-
-
-  // Auto-clear messages after a few seconds
-  useEffect(() => {
-    if (message) {
-      // Clear message after 5 seconds
-      const timer = setTimeout(() => setMessage(""), 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [message]);
-
-
-
-  const userTypes = [
-    {
-      id: "patient" as const,
-      icon: "👤", // Clean single user icon
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "from-blue-50 to-cyan-50",
-      borderColor: "border-blue-200",
-    },
-  ];
-
-  // Alternative icons we could use:
-  // 🏥 - Hospital (medical)
-  // 👤 - Single person (clean)
-  // 🩺 - Stethoscope (medical)
-  // 💙 - Blue heart (health)
-  // 🔵 - Blue circle (minimal)
-
-  // Multilingual OTP messages
-  const otpMessages = {
-    english: `OTP sent to ${phoneNumber}. Your verification code is ready.`,
-    hindi: `${phoneNumber} पर OTP भेजा गया। आपका सत्यापन कोड तैयार है।`,
-    tamil: `${phoneNumber} க்கு OTP அனுப்பப்பட்டது। உங்கள் சரிபார்ப்பு குறியீடு தயார்।`,
-    telugu: `${phoneNumber} కు OTP పంపబడింది। మీ ధృవీకరణ కోడ్ సిద్ధంగా ఉంది।`,
-    bengali: `${phoneNumber} এ OTP পাঠানো হয়েছে। আপনার যাচাইকরণ কোড প্রস্তুত।`,
-    marathi: `${phoneNumber} वर OTP पाठवला गेला. तुमचा सत्यापन कोड तयार आहे.`,
-    punjabi: `${phoneNumber} ਤੇ OTP ਭੇਜਿਆ ਗਿਆ। ਤੁਹਾਡਾ ਪੁਸ਼ਟੀ ਕੋਡ ਤਿਆਰ ਹੈ।`,
-    gujarati: `${phoneNumber} પર OTP મોકલાયો. તમારો ચકાસણી કોડ તૈયાર છે.`,
-    kannada: `${phoneNumber} ಗೆ OTP ಕಳುಹಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ಪರಿಶೀಲನೆ ಕೋಡ್ ಸಿದ್ಧವಾಗಿದೆ.`,
-    malayalam: `${phoneNumber} ലേക്ക് OTP അയച്ചു. നിങ്ങളുടെ പരിശോധന കോഡ് തയ്യാറാണ്.`,
-    odia: `${phoneNumber} କୁ OTP ପଠାଯାଇଛି। ଆପଣଙ୍କର ଯାଞ୍ଚ କୋଡ୍ ପ୍ରସ୍ତୁତ।`,
-    assamese: `${phoneNumber} লৈ OTP পঠোৱা হৈছে। আপোনাৰ সত্যাপন কোড প্ৰস্তুত।`,
-  };
-
-  const handleSendOTP = async () => {
-    if (phoneNumber.length >= 10) {
-      setIsLoading(true);
-
-      // Auto-login for your admin number
-      if (phoneNumber === "9060328119" && activeTab === "admin") {
-        setTimeout(() => {
-          setIsLoading(false);
-          handleLogin();
-        }, 1000);
-        return;
-      }
-
-      // Simulate OTP sending with realistic delay for other numbers
-      setTimeout(() => {
-        setShowOTP(true);
-        setIsLoading(false);
-
-        // For demo, use simple OTP: 123456 for any phone number
-        const otpCode = "123456";
-        setGeneratedOTP(otpCode);
-        console.log(`Demo OTP for ${phoneNumber}: ${otpCode}`);
-
-        // Set and speak multilingual message
-        const message =
-          otpMessages[currentLanguage as keyof typeof otpMessages] ||
-          otpMessages.english;
-        setMessage(message);
-      }, 1000);
-    } else {
-      setMessage("Please enter a valid 10-digit phone number");
-    }
-  };
-
-  const handleLogin = async () => {
+  const handleSendOtp = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!phone) return;
     setIsLoading(true);
-
-    try {
-      if (activeTab === "admin") {
-        // Admin login with multiple methods
-        let success = false;
-        let userInfo = {};
-
-        // Method 1: Phone number check
-        if (loginMethod === "phone" && phoneNumber === "9060328119") {
-          success = true;
-          userInfo = {
-            phoneNumber,
-            email: email || "admin@easymed.in",
-            loginMethod: "phone",
-            name: "Super Admin",
-            role: "super_admin",
-            timestamp: new Date().toISOString(),
-          };
-
-          // Also login to AdminContext
-          try {
-            await loginAdmin(phoneNumber, userInfo, "admin123");
-          } catch (adminError) {
-            console.log(
-              "AdminContext login failed, but proceeding with main login",
-            );
-          }
-        }
-        // Method 2: Email and password check for admin
-        else if (
-          loginMethod === "email" &&
-          (email === "admin@easymed.in" ||
-            email === "admin@gmail.com" ||
-            email === "superadmin@easymed.in" ||
-            email === "praveen@stellaronehealth.com") &&
-          (password === "admin123" ||
-            password === "easymed2025" ||
-            password === "admin@123" ||
-            password === "dummy123")
-        ) {
-          success = true;
-          userInfo = {
-            phoneNumber: "9060328119",
-            email,
-            loginMethod: "email",
-            name:
-              email === "praveen@stellaronehealth.com"
-                ? "Praveen - StellarOne Health"
-                : "Super Admin (Email)",
-            role: "super_admin",
-            timestamp: new Date().toISOString(),
-          };
-
-          // Also login to AdminContext
-          try {
-            await loginAdmin(email, userInfo, password);
-          } catch (adminError) {
-            console.log(
-              "AdminContext login failed, but proceeding with main login",
-            );
-          }
-        }
-
-        if (success) {
-          console.log("✅ Admin login successful, calling onLogin with:", {
-            userType: "admin",
-            userInfo,
-          });
-
-          // Set success message
-          setMessage(t("loginSuccess"));
-
-          setTimeout(() => {
-            onLogin("admin", userInfo);
-          }, 1000);
-          setIsLoading(false);
-          return;
-        } else {
-          setMessage("Access denied. Please check your credentials.");
-          setIsLoading(false);
-          return;
-        }
-      } else {
-        // Enhanced login for Patient, ASHA, and Doctor with database integration
-        let success = false;
-        let userInfo: any = {};
-
-        if (loginMethod === "phone" && showOTP && otp) {
-          // For phone login with OTP, validate OTP
-          console.log("Phone OTP validation:", {
-            phoneNumber,
-            otp,
-            generatedOTP,
-            showOTP,
-          });
-
-          if (otp.length < 6) {
-            setMessage("Please enter the complete 6-digit OTP");
-            setIsLoading(false);
-            return;
-          }
-
-          // For demo, accept 123456 or the generated OTP
-          if (otp !== "123456" && generatedOTP && otp !== generatedOTP) {
-            setMessage("Invalid OTP. For demo, please enter: 123456");
-            setIsLoading(false);
-            return;
-          }
-
-          // Try to find user in database
-          try {
-            const dbUser = await dbService.authenticateUser(
-              phoneNumber,
-              activeTab,
-            );
-            if (dbUser) {
-              success = true;
-              userInfo = {
-                ...dbUser,
-                phoneNumber,
-                loginMethod: "phone",
-                role: activeTab,
-                timestamp: new Date().toISOString(),
-              };
-            } else {
-              // Create demo user if not found
-              success = true;
-              userInfo = {
-                phoneNumber,
-                phone: phoneNumber,
-                loginMethod: "phone",
-                name: `${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} User`,
-                role: activeTab,
-                timestamp: new Date().toISOString(),
-              };
-            }
-          } catch (dbError) {
-            console.log("Database error, using demo login:", dbError);
-            success = true;
-            userInfo = {
-              phoneNumber,
-              phone: phoneNumber,
-              loginMethod: "phone",
-              name: `${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} User`,
-              role: activeTab,
-              timestamp: new Date().toISOString(),
-            };
-          }
-
-          console.log("✅ Phone login successful:", userInfo);
-        } else if (loginMethod === "phone" && !showOTP) {
-          // This shouldn't happen as we show OTP first, but let's handle it
-          alert(
-            '📱 Please click "Send OTP" first to receive your verification code.',
-          );
-          setIsLoading(false);
-          return;
-        } else if (loginMethod === "email" && email && password) {
-          // Email + password login for all user types
-          const demoCredentials = {
-            patient: [
-              {
-                email: "patient@demo.com",
-                password: "patient123",
-                name: "Demo Patient",
-              },
-              {
-                email: "john.doe@gmail.com",
-                password: "demo123",
-                name: "John Doe",
-              },
-              {
-                email: "patient@easymed.in",
-                password: "patient123",
-                name: "EasyMed Patient",
-              },
-            ],
-            asha: [
-              {
-                email: "asha@demo.com",
-                password: "asha123",
-                name: "Demo ASHA Worker",
-              },
-              {
-                email: "asha.worker@gmail.com",
-                password: "demo123",
-                name: "ASHA Community Worker",
-              },
-              {
-                email: "asha@easymed.in",
-                password: "asha123",
-                name: "EasyMed ASHA",
-              },
-            ],
-            doctor: [
-              {
-                email: "doctor@demo.com",
-                password: "doctor123",
-                name: "Dr. Demo",
-              },
-              {
-                email: "dr.smith@gmail.com",
-                password: "demo123",
-                name: "Dr. Smith",
-              },
-              {
-                email: "doctor@easymed.in",
-                password: "doctor123",
-                name: "Dr. EasyMed",
-              },
-            ],
-          };
-
-          // Try database first
-          try {
-            const dbUser = await dbService.authenticateUser(email, activeTab);
-            if (dbUser) {
-              success = true;
-              userInfo = {
-                ...dbUser,
-                email,
-                loginMethod: "email",
-                role: activeTab,
-                timestamp: new Date().toISOString(),
-              };
-            }
-          } catch (dbError) {
-            console.log("Database user not found, trying demo credentials");
-          }
-
-          // If not found in database, try demo credentials
-          if (!success) {
-            const credentials =
-              demoCredentials[activeTab as keyof typeof demoCredentials];
-            const matchedCredential = credentials?.find(
-              (cred) => cred.email === email && cred.password === password,
-            );
-
-            if (matchedCredential) {
-              success = true;
-              userInfo = {
-                email,
-                loginMethod: "email",
-                name: matchedCredential.name,
-                role: activeTab,
-                timestamp: new Date().toISOString(),
-              };
-            }
-          }
-        }
-
-        if (success) {
-          console.log("✅ Login successful, calling onLogin immediately");
-          onLogin(activeTab, userInfo);
-          setIsLoading(false);
-          return;
-        } else {
-          setMessage(
-            "Invalid credentials. Please use the demo credentials provided.",
-          );
-          setIsLoading(false);
-          return;
-        }
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      setMessage("Login failed. Please try again.");
-      setIsLoading(false);
-    }
-  };
-
-  const handleSocialLogin = (provider: string) => {
-    setIsLoading(true);
-
-    // Simulate social login
     setTimeout(() => {
-      const userInfo = {
-        loginMethod: "social",
-        provider,
-        name: `${provider.charAt(0).toUpperCase() + provider.slice(1)} User`,
-        timestamp: new Date().toISOString(),
-      };
-      onLogin(activeTab, userInfo);
       setIsLoading(false);
-    }, 1500);
+      setOtpSent(true);
+      // TODO: hook your real OTP API here
+    }, 800);
   };
 
-  const handleSignup = () => {
-    setMessage("Signup functionality is not yet implemented.");
+  const handleVerifyOtp = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!otp) return;
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      // TODO: real verification + redirect
+      alert(getText("loginSuccess"));
+    }, 800);
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-3 sm:p-4">
-      <div className="w-full max-w-sm sm:max-w-md">
-        {/* Language Selector - Top Right */}
-        <div className="flex justify-end mb-4">
-          <LanguageSelector />
-        </div>
-        
-        {/* Header */}
-        <div className="text-center mb-6 sm:mb-8">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-400 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl relative overflow-hidden">
-            {/* Background pattern */}
-            <div className="absolute inset-0 bg-white/10 rounded-3xl"></div>
-            
-            {/* Modern health icon - stethoscope + heart + AI */}
-            <div className="relative z-10 flex items-center justify-center">
-              <svg
-                className="w-10 h-10 sm:w-12 sm:h-12 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-              >
-                {/* Heart shape */}
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  d="M21 8.5c0-2.485-2.239-4.5-5-4.5-1.664 0-3.13.8-4 2.077C11.13 4.8 9.664 4 8 4 5.239 4 3 6.015 3 8.5c0 3.5 3 5.5 9 11.5 6-6 9-8 9-11.5z"
-                  fill="currentColor"
-                  fillOpacity="0.3"
-                />
-                {/* Pulse line */}
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2}
-                  d="M3 12h3l2-4 4 8 2-4h7"
-                />
-              </svg>
-              
-              {/* AI sparkle effect */}
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-300 rounded-full animate-pulse"></div>
-              <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-cyan-300 rounded-full animate-ping"></div>
-            </div>
-          </div>
-          <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-2">
-            {t("welcome")}
-          </h1>
-          <p className="text-gray-600 text-xs sm:text-sm font-medium px-2">AI for a Healthier Tomorrow</p>
+  const handleEmailLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !password) return;
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      alert(getText("loginSuccess"));
+    }, 800);
+  };
 
-          {/* Admin Privilege Indicator */}
-          {activeTab === "admin" && (
-            <div className="mt-3 bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-300 rounded-lg p-3">
-              <p className="text-blue-800 text-sm font-bold flex items-center justify-center mb-2">
-                <span className="mr-2">👑</span>
-                Admin Login Options
-              </p>
-              <div className="text-blue-700 text-xs space-y-1">
-                <p>
-                  <strong>📱 Phone:</strong> 9060328119 (Auto login)
-                </p>
-                <p>
-                  <strong>📧 Email:</strong> admin@easymed.in,
-                  praveen@stellaronehealth.com
-                </p>
-                <p>
-                  <strong>🔑 Password:</strong> admin123, dummy123
-                </p>
-                <p className="text-blue-600 mt-2">
-                  Alternative: admin@gmail.com / easymed2025
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Simple Welcome Message for Mobile */}
-        <div className="text-center mb-6">
-          <p className="text-gray-700 text-sm font-medium">
-            Your personalized healthcare companion
-          </p>
-        </div>
-
-        {/* Login Form */}
-        <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-4 sm:p-6 border border-white/30 shadow-xl">
-          {/* Login Method Tabs */}
-          <div className="flex bg-gray-100 rounded-2xl p-1 mb-6">
-            <button
-              onClick={() => setLoginMethod("phone")}
-              className={`flex-1 py-2 px-3 rounded-xl text-sm font-medium transition-all ${
-                loginMethod === "phone"
-                  ? "bg-white text-blue-600 shadow-sm"
-                  : "text-gray-600"
-              }`}
-            >
-              📱 {t("phoneLogin")}
-            </button>
-            <button
-              onClick={() => setLoginMethod("email")}
-              className={`flex-1 py-2 px-3 rounded-xl text-sm font-medium transition-all ${
-                loginMethod === "email"
-                  ? "bg-white text-blue-600 shadow-sm"
-                  : "text-gray-600"
-              }`}
-            >
-              ✉️ {t("emailLogin")}
-            </button>
-          </div>
-
-          {/* Phone Login */}
-          {loginMethod === "phone" && (
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("phoneNumber")}
-                </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-                    🇮🇳 +91
-                  </span>
-                  <input
-                    type="tel"
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    className="w-full pl-16 pr-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="9876543210"
-                    maxLength={10}
-                  />
-                </div>
-              </div>
-
-              {!showOTP ? (
-                <button
-                  onClick={handleSendOTP}
-                  disabled={phoneNumber.length < 10 || isLoading}
-                  className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transform hover:scale-[0.98] transition-all flex items-center justify-center"
-                >
-                  {isLoading ? (
-                    <div className="flex items-center space-x-2">
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                      <span>
-                        {phoneNumber === "9060328119" && activeTab === "admin"
-                          ? "Logging in..."
-                          : "Sending..."}
-                      </span>
-                    </div>
-                  ) : phoneNumber === "9060328119" && activeTab === "admin" ? (
-                    "Auto Login"
-                  ) : (
-                    t("sendOtp")
-                  )}
-                </button>
-              ) : (
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("enterOtp")}
-                    </label>
-                    <input
-                      type="text"
-                      value={otp}
-                      onChange={(e) => setOtp(e.target.value)}
-                      onKeyPress={handleKeyPress}
-                      className="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center text-2xl tracking-widest"
-                      placeholder="000000"
-                      maxLength={6}
-                    />
-                  </div>
-                  <button
-                    onClick={handleLogin}
-                    disabled={otp.length < 6 || isLoading}
-                    className="w-full py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transform hover:scale-[0.98] transition-all flex items-center justify-center"
-                  >
-                    {isLoading ? (
-                      <div className="flex items-center space-x-2">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                        <span>Verifying...</span>
-                      </div>
-                    ) : (
-                      t("verifyOtp")
-                    )}
-                  </button>
-
-                  {/* Resend OTP Button */}
-                  <button
-                    onClick={() => {
-                      setOtp("");
-                      setShowOTP(false);
-                      handleSendOTP();
-                    }}
-                    disabled={isLoading}
-                    className="w-full py-2 text-blue-600 font-medium hover:text-blue-700 transition-colors disabled:opacity-50"
-                  >
-                    Didn't receive OTP? Resend
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Email Login */}
-          {loginMethod === "email" && (
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("email")}
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  className="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("password")}
-                </label>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  className="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="••••••••"
-                />
-              </div>
-              <button
-                onClick={handleLogin}
-                disabled={!email || !password || isLoading}
-                className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transform hover:scale-[0.98] transition-all flex items-center justify-center"
-              >
-                {isLoading ? (
-                  <div className="flex items-center space-x-2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                    <span>Logging in...</span>
-                  </div>
-                ) : (
-                  t("login")
-                )}
-              </button>
-            </div>
-          )}
-
-          {/* Success/Error Messages */}
-          {message && (
-            <div
-              className={`mt-4 p-4 rounded-xl text-center font-medium ${
-                message.includes("success") ||
-                message.includes("successfully") ||
-                message.includes("welcome")
-                  ? "bg-green-100 border border-green-300 text-green-800"
-                  : "bg-red-100 border border-red-300 text-red-800"
-              }`}
-            >
-              {message}
-            </div>
-          )}
-
-          {/* Social Login */}
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200"></div>
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-white text-gray-500">
-                  {t("continueWith")}
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              <button
-                onClick={() => handleSocialLogin("google")}
-                disabled={isLoading}
-                className="flex items-center justify-center py-3 px-4 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 transition-all hover:shadow-md disabled:opacity-50"
-              >
-                {isLoading ? (
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
-                ) : (
-                  <Chrome className="w-5 h-5" />
-                )}
-              </button>
-
-              <button
-                onClick={() => handleSocialLogin("facebook")}
-                disabled={isLoading}
-                className="flex items-center justify-center py-3 px-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all hover:shadow-md disabled:opacity-50"
-              >
-                {isLoading ? (
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                ) : (
-                  <Facebook className="w-5 h-5" />
-                )}
-              </button>
-
-              <button
-                onClick={() => handleSocialLogin("apple")}
-                disabled={isLoading}
-                className="flex items-center justify-center py-3 px-4 bg-black text-white rounded-xl hover:bg-gray-800 transition-all hover:shadow-md disabled:opacity-50"
-              >
-                {isLoading ? (
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                ) : (
-                  <Apple className="w-5 h-5" />
-                )}
-              </button>
-            </div>
-          </div>
-
-          {/* Sign Up Link */}
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
-              {t("dontHaveAccount")}{" "}
-              <button
-                onClick={handleSignup}
-                className="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200"
-              >
-                {t("signUp")}
-              </button>
-            </p>
-          </div>
-
-          {/* Terms */}
-          <div className="mt-4 text-center">
-            <p className="text-xs text-gray-500">{t("terms")}</p>
-          </div>
+  const renderPhoneForm = () => (
+    <form
+      onSubmit={otpSent ? handleVerifyOtp : handleSendOtp}
+      className="space-y-5"
+    >
+      {/* Phone input */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">
+          {getText("phoneNumber")}
+        </label>
+        <div className="flex items-center bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100">
+          <span className="mr-2 text-xl">🇮🇳</span>
+          <span className="mr-2 text-gray-500 text-sm">+91</span>
+          <input
+            type="tel"
+            className="flex-1 border-0 focus:ring-0 text-gray-900 placeholder-gray-400 text-sm sm:text-base"
+            placeholder="9876543210"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
         </div>
       </div>
+
+      {/* OTP input (after sent) */}
+      {otpSent && (
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">
+            {getText("enterOtp")}
+          </label>
+          <input
+            type="tel"
+            className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 text-sm sm:text-base"
+            placeholder="123456"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+          />
+          <p className="text-xs text-gray-500">
+            {getText("sendOtp")} • SMS / WhatsApp
+          </p>
+        </div>
+      )}
+
+      {/* Primary button */}
+      <button
+        type="submit"
+        disabled={isLoading || (!phone && !otpSent)}
+        className="w-full flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:brightness-105 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 text-sm sm:text-base"
+      >
+        {isLoading && (
+          <span className="mr-2 h-4 w-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
+        )}
+        {otpSent ? getText("verifyOtp") : getText("sendOtp")}
+      </button>
+    </form>
+  );
+
+  const renderEmailForm = () => (
+    <form onSubmit={handleEmailLogin} className="space-y-5">
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">
+          {getText("email")}
+        </label>
+        <input
+          type="email"
+          className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 text-sm sm:text-base"
+          placeholder="you@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">
+          {getText("password")}
+        </label>
+        <input
+          type="password"
+          className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 text-sm sm:text-base"
+          placeholder="••••••••"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+
+      <button
+        type="submit"
+        disabled={isLoading || !email || !password}
+        className="w-full flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:brightness-105 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 text-sm sm:text-base"
+      >
+        {isLoading && (
+          <span className="mr-2 h-4 w-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
+        )}
+        {getText("login")}
+      </button>
+    </form>
+  );
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex flex-col">
+      {/* Top bar */}
+      <header className="w-full px-4 sm:px-8 py-4 flex items-center justify-between">
+        <div className="flex items-center space-x-3">
+          <div className="h-10 w-10 rounded-2xl bg-gradient-to-tr from-blue-500 to-purple-600 flex items-center justify-center shadow-md">
+            <span className="text-2xl">💜</span>
+          </div>
+          <div className="hidden sm:block">
+            <p className="text-xs font-semibold tracking-wide text-blue-500 uppercase">
+              EasyMed
+            </p>
+            <p className="text-sm text-gray-600">
+              {getText("healthCompanion")}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <LanguageSelector />
+        </div>
+      </header>
+
+      {/* Main layout */}
+      <main className="flex-1 flex items-center justify-center px-4 sm:px-6 py-6 sm:py-10">
+        <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left: Hero / Branding */}
+          <div className="hidden lg:block">
+            <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-3xl p-8 xl:p-10 text-white shadow-2xl relative overflow-hidden">
+              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
+              <div className="absolute -left-16 bottom-0 h-44 w-44 rounded-full bg-blue-400/30 blur-3xl" />
+
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-100 mb-3">
+                EasyMed • TeleHealth
+              </p>
+              <h1 className="text-3xl xl:text-4xl font-bold leading-snug mb-4">
+                AI for a Healthier Tomorrow
+              </h1>
+              <p className="text-blue-100 text-sm xl:text-base mb-6 max-w-md">
+                Smart symptom analysis, medication guidance and 24/7 support
+                for you and your family — all in your language.
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-md border border-white/20">
+                  <p className="text-xs text-blue-100 mb-1">24/7</p>
+                  <p className="font-semibold">AI Health Assistant</p>
+                  <p className="text-xs text-blue-100 mt-2">
+                    Ask questions anytime and get instant guidance.
+                  </p>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-md border border-white/20">
+                  <p className="text-xs text-blue-100 mb-1">7+ Languages</p>
+                  <p className="font-semibold">India-first Experience</p>
+                  <p className="text-xs text-blue-100 mt-2">
+                    Hindi, Tamil, Telugu, Kannada, Marathi and more.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 flex items-center space-x-3 text-xs text-blue-100">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Secure • Encrypted • Patient-first design</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Login card */}
+          <div className="flex justify-center">
+            <div className="w-full max-w-md">
+              <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl border border-white/70 px-5 py-6 sm:px-8 sm:py-8">
+                {/* Title */}
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+                    {getText("welcome")}
+                  </h2>
+                  <p className="text-sm text-gray-500">
+                    AI for a healthier tomorrow.
+                  </p>
+                </div>
+
+                {/* Tabs */}
+                <div className="flex rounded-xl bg-gray-100 p-1 mb-6 text-sm sm:text-base">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMode("phone");
+                      setOtpSent(false);
+                    }}
+                    className={`flex-1 py-2.5 rounded-lg font-medium transition-all ${
+                      mode === "phone"
+                        ? "bg-white shadow-sm text-gray-900"
+                        : "text-gray-500 hover:text-gray-800"
+                    }`}
+                  >
+                    {getText("phoneLogin")}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMode("email");
+                      setOtpSent(false);
+                    }}
+                    className={`flex-1 py-2.5 rounded-lg font-medium transition-all ${
+                      mode === "email"
+                        ? "bg-white shadow-sm text-gray-900"
+                        : "text-gray-500 hover:text-gray-800"
+                    }`}
+                  >
+                    {getText("emailLogin")}
+                  </button>
+                </div>
+
+                {/* Forms */}
+                <div className="mb-6">
+                  {mode === "phone" ? renderPhoneForm() : renderEmailForm()}
+                </div>
+
+                {/* Divider */}
+                <div className="flex items-center mb-4">
+                  <div className="flex-1 h-px bg-gray-200" />
+                  <span className="px-3 text-xs uppercase tracking-wide text-gray-400">
+                    {getText("continueWith")}
+                  </span>
+                  <div className="flex-1 h-px bg-gray-200" />
+                </div>
+
+                {/* Social buttons - just UI for now */}
+                <div className="grid grid-cols-3 gap-3 mb-5">
+                  <button className="flex items-center justify-center rounded-xl border border-gray-200 bg-white py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-all shadow-sm">
+                    🌐
+                  </button>
+                  <button className="flex items-center justify-center rounded-xl border border-blue-500 bg-blue-500/90 py-2.5 text-sm font-medium text-white hover:bg-blue-600 transition-all shadow-sm">
+                    f
+                  </button>
+                  <button className="flex items-center justify-center rounded-xl border border-gray-900 bg-black py-2.5 text-sm font-medium text-white hover:bg-gray-900/90 transition-all shadow-sm">
+                    
+                  </button>
+                </div>
+
+                {/* Footer text */}
+                <p className="text-xs text-center text-gray-500 mb-2">
+                  {getText("dontHaveAccount")}{" "}
+                  <a
+                    href="#"
+                    className="font-semibold text-blue-600 hover:text-blue-700"
+                  >
+                    {getText("signUp")}
+                  </a>
+                </p>
+                <p className="text-[11px] text-center text-gray-400 leading-relaxed">
+                  {getText("terms")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
