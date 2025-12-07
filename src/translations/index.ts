@@ -37,6 +37,41 @@ export const translations = {
     healthRecordsMenu: "Health records",
 
     logout: "Logout",
+    
+        // Patient dashboard – common labels
+    patientPortal: "Patient Portal",
+    healthPriority: "Your health is always our priority.",
+    systemOnline: "System online",
+    healthcareReady: "Healthcare support is ready",
+
+    upcomingAppointments: "Upcoming appointments",
+    next: "next",
+    healthRecords: "Health records",
+    allUpdated: "All updated",
+    availableSchemes: "Available schemes",
+    readyToApply: "Ready to apply",
+
+    quickActions: "Quick actions",
+
+    videoCall: "Video Call",
+    startConsultation: "Start a video consultation with a doctor",
+
+    bookAppointment: "Book appointment",
+    scheduleVisit: "Schedule a visit",
+
+    prescriptions: "Prescriptions",
+    viewMedicines: "View medicines",
+
+    recentActivity: "Recent activity",
+    bloodTestResults: "Blood test results",
+
+    dashboard: "Dashboard",
+    vitalSigns: "Vital signs",
+    healthAnalytics: "Health analytics",
+    bookConsultation: "Book consultation",
+    healthRecordsMenu: "Health records",
+
+    logout: "Logout",
 
     welcomeBack: "Welcome back",
     healthCompanion: "Your health companion is here",
@@ -182,6 +217,41 @@ export const translations = {
   },
 
   hindi: {
+        // Patient dashboard – common labels
+    patientPortal: "रोगी पोर्टल",
+    healthPriority: "आपका स्वास्थ्य हमेशा हमारी प्राथमिकता है।",
+    systemOnline: "सिस्टम ऑनलाइन है",
+    healthcareReady: "स्वास्थ्य सेवा सहायता तैयार है",
+
+    upcomingAppointments: "आगामी अपॉइंटमेंट्स",
+    next: "अगला",
+    healthRecords: "स्वास्थ्य रिकॉर्ड्स",
+    allUpdated: "सभी अपडेटेड",
+    availableSchemes: "उपलब्ध योजनाएँ",
+    readyToApply: "आवेदन के लिए तैयार",
+
+    quickActions: "त्वरित कार्य",
+
+    videoCall: "वीडियो कॉल",
+    startConsultation: "डॉक्टर से वीडियो परामर्श शुरू करें",
+
+    bookAppointment: "अपॉइंटमेंट बुक करें",
+    scheduleVisit: "भेंट शेड्यूल करें",
+
+    prescriptions: "प्रिस्क्रिप्शन",
+    viewMedicines: "दवाइयाँ देखें",
+
+    recentActivity: "हाल की गतिविधि",
+    bloodTestResults: "रक्त जांच परिणाम",
+
+    dashboard: "डैशबोर्ड",
+    vitalSigns: "जीवन संकेत",
+    healthAnalytics: "स्वास्थ्य विश्लेषण",
+    bookConsultation: "कंसल्टेशन बुक करें",
+    healthRecordsMenu: "स्वास्थ्य रिकॉर्ड्स",
+
+    logout: "लॉगआउट",
+    
         // Patient dashboard – common labels
     patientPortal: "रोगी पोर्टल",
     healthPriority: "आपका स्वास्थ्य हमेशा हमारी प्राथमिकता है।",
