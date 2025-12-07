@@ -14,13 +14,17 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToLogin }) => {
   // Helper function to get homepage translations
   const getHomepageTranslation = (key: string): string => {
     try {
-      const langKey = currentLanguage === 'english' ? 'english' : 
+      const langKey = currentLanguage === 'english' ? 'english' :
                      currentLanguage === 'hindi' ? 'hindi' :
                      currentLanguage === 'tamil' ? 'tamil' :
                      currentLanguage === 'telugu' ? 'telugu' :
                      currentLanguage === 'bengali' ? 'bengali' :
                      currentLanguage === 'marathi' ? 'marathi' :
-                     currentLanguage === 'kannada' ? 'kannada' : 'english';
+                     currentLanguage === 'kannada' ? 'kannada' :
+                     // Explicitly handle Malayalam; otherwise it falls back to English
+                     currentLanguage === 'malayalam' ? 'malayalam' :
+                     // Fallback to English for any unsupported language
+                     'english';
       
       const langTranslations = translations[langKey as keyof typeof translations];
       const homepageTranslations = langTranslations.homepage;
@@ -66,7 +70,14 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigateToLogin }) => {
                   <option value="telugu">🇮🇳 తెలుగు</option>
                   <option value="bengali">🇮🇳 বাংলা</option>
                   <option value="marathi">🇮🇳 मराठी</option>
-                  <option value="Kannada">🇮🇳 ಕನ್ನಡ</option>
+                  {/*
+                   * Use lowercase language codes for the option values.  The
+                   * translation system keys are defined in lowercase (e.g.,
+                   * "kannada"), so using a different casing here will
+                   * prevent the selected language from matching the
+                   * translations and will cause a fallback to English.
+                   */
+                  <option value="kannada">🇮🇳 ಕನ್ನಡ</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
                   <svg
