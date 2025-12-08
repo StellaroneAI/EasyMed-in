@@ -461,6 +461,70 @@ export default function PatientDashboard({
           onToggleMinimize={() => setIsAIAssistantOpen(false)}
         />
       )}
+            {/* Mobile Bottom Navigation Bar – fixed to viewport */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t border-gray-200 lg:hidden z-50">
+        <div className="grid grid-cols-5 gap-1 px-2 py-2">
+          {[
+            {
+              id: "overview",
+              name: getText("home", "Home"),
+              icon: "📊",
+              color: "from-blue-500 to-blue-600",
+            },
+            {
+              id: "vital-dashboard",
+              name: getText("vitalsShort", "Vitals"),
+              icon: "💓",
+              color: "from-red-500 to-pink-600",
+            },
+            {
+              id: "symptom-checker",
+              name: getText("aiShort", "AI"),
+              icon: "🤖",
+              color: "from-purple-500 to-indigo-600",
+            },
+            {
+              id: "medication-manager",
+              name: getText("medsShort", "Meds"),
+              icon: "💊",
+              color: "from-green-500 to-emerald-600",
+            },
+            {
+              id: "health-records",
+              name: getText("recordsShort", "Records"),
+              icon: "📋",
+              color: "from-purple-500 to-purple-600",
+            },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveSection(item.id)}
+              className={`flex flex-col items-center justify-center py-2 px-1 rounded-lg transition-colors duration-200 ${
+                activeSection === item.id
+                  ? "bg-blue-50 text-blue-600"
+                  : "text-gray-600 hover:bg-gray-50"
+              }`}
+            >
+              <div
+                className={`w-8 h-8 rounded-lg flex items-center justify-center mb-1 ${
+                  activeSection === item.id
+                    ? `bg-gradient-to-r ${item.color} text-white`
+                    : "text-2xl"
+                }`}
+              >
+                <span className="text-sm">{item.icon}</span>
+              </div>
+              <span
+                className={`text-xs font-medium truncate ${
+                  activeSection === item.id ? "text-blue-600" : "text-gray-600"
+                }`}
+              >
+                {item.name}
+              </span>
+            </button>
+          ))}
+        </div>
+      </nav>
     </div>
   );
 }
