@@ -6,7 +6,7 @@ import ConsultationBooking from "./ConsultationBooking";
 import SymptomChecker from "./SymptomChecker";
 import HealthAnalytics from "./HealthAnalytics";
 import MedicationManager from "./MedicationManager";
-import EmergencySystem from "./EmergencySystem";
+// import EmergencySystem from "./EmergencySystem"; // not used yet
 import { useLanguage } from "../contexts/LanguageContext";
 
 interface PatientDashboardProps {
@@ -153,7 +153,7 @@ export default function PatientDashboard({
         </div>
       </section>
 
-      {/* Quick actions */}
+      {/* Quick actions - horizontal scroll for mobile */}
       <section>
         <h2 className="text-sm font-semibold text-gray-900 mb-2">
           {getText("quickActions", "Quick actions")}
@@ -382,9 +382,7 @@ export default function PatientDashboard({
               🏥
             </div>
             <div>
-              <p className="text-[11px] text-blue-100 leading-tight">
-                EasyMed
-              </p>
+              <p className="text-[11px] text-blue-100 leading-tight">EasyMed</p>
               <p className="text-sm font-semibold text-white leading-tight">
                 {getText("patientPortal", "Patient Portal")}
               </p>
@@ -403,12 +401,12 @@ export default function PatientDashboard({
         </div>
       </header>
 
-      {/* Main scrollable content (with bottom padding for nav) */}
-      <main className="flex-1 max-w-xl mx-auto w-full px-4 pt-4 pb-20">
+      {/* Main scrollable content */}
+      <main className="flex-1 max-w-xl mx-auto w-full px-4 pt-4">
         {renderContent()}
       </main>
 
-      {/* Bottom tab bar */}
+      {/* App-like bottom tab bar (mobile) */}
       <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40">
         <div className="max-w-xl mx-auto flex justify-between px-3 py-1.5">
           {[
@@ -416,7 +414,11 @@ export default function PatientDashboard({
             { id: "ai", label: getText("aiShort", "AI"), icon: "🤖" },
             { id: "vitals", label: getText("vitalsShort", "Vitals"), icon: "💓" },
             { id: "meds", label: getText("medsShort", "Meds"), icon: "💊" },
-            { id: "records", label: getText("recordsShort", "Records"), icon: "📋" },
+            {
+              id: "records",
+              label: getText("recordsShort", "Records"),
+              icon: "📋",
+            },
           ].map((tab) => {
             const active = activeTab === tab.id;
             return (
@@ -447,7 +449,10 @@ export default function PatientDashboard({
         </div>
       </nav>
 
-      {/* AI Assistant sheet */}
+      {/* Spacer so content doesn’t hide behind nav */}
+      <div className="h-16" />
+
+      {/* AI Assistant floating sheet */}
       {isAIAssistantOpen && (
         <AIHealthAssistant
           isMinimized={false}
